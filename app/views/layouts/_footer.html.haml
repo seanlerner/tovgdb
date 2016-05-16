@@ -1,0 +1,25 @@
+.container.footer
+  .row.footer-main
+    .col-md-4
+      %ul.footer-nav.nav
+        %li= link_to 'Home', root_path
+        %li= link_to 'Games', games_path
+        %li= link_to 'Creators', creators_path
+        %li.footer-social-links
+          = link_to "<i class='fa fa-2x fa-twitter'></i><span class='hide'>Twitter</span>".html_safe, 'http://twitter.com'
+          = link_to "<i class='fa fa-2x fa-facebook'></i><span class='hide'>Facebook</span>".html_safe, 'http://facebook.com'
+    .col-md-4
+      %form.mailing-list-signup.form-inline{ action: '//handeyesociety.us7.list-manage.com/subscribe/post?u=b101b4c5a5ea7bcf36dce5f20&id=dbed7e64e8',
+        method: 'post', name: 'mc-embedded-subscribe-form', novalidate: '', target: '_blank' }
+        %h2 Join the Hand Eye mailing list
+        %p Find out how to become a member, volunteer for us, and get free Hand Eye Updates in your mailbox,
+          including the monthly Toronto Videogame Events Digest.
+        %label.sr-only{ for: 'mailing-list-email' } Email
+        %input.form-control#mailing-list-email{ name: 'email', type: 'email', value: '', placeholder: '<email address>' }
+        / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+        %div{ 'aria-hidden': 'true', style: 'position: absolute; left: -5000px;' }
+          %input{ name: 'b_dedc11f8b694cb40ba9f4fb83_b80ab37a00', tabindex: '-1', type: 'text', value: '' }
+        %input.form-control{ name: 'subscribe', type: 'submit', value: 'Subscribe' }
+  .row.footer-bottom
+    .col-md-12
+      Toronto Videogame Database &copy; 2016

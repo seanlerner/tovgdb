@@ -1,0 +1,5 @@
+.row.explore-cloud-container
+  %h2 Explore By Tag
+  .explore-cloud
+    - [Game::TAGS].flatten.each do |tag_class|
+      = link_to tag_class.to_s.pluralize, tag_class, class: tag_class.css_class

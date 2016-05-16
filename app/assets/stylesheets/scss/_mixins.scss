@@ -1,0 +1,28 @@
+// Mixins
+@mixin game-summary-in-list {
+  .game-summary-in-list {
+    border-bottom: 1px solid $grey;
+    margin-bottom: 35px;
+    padding-bottom: 40px;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 0;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  p {
+    padding-top: 10px;
+  }
+}

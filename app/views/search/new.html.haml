@@ -1,0 +1,56 @@
+.search-form
+  .row
+    .col-md-12
+      %h1 Advanced Search
+
+  .row
+    .col-md-12
+      = form_tag(search_results_path, method: 'get') do
+        .row
+          .col-md-12
+            = text_field_tag 'keywords', nil, class: 'keywords', placeholder: 'Enter Keywords'
+            = submit_tag 'Search', class: 'search-button'
+
+        .row.search-type
+          .col-md-12
+            = radio_button_tag 'match_type', 'all', true
+            = label_tag 'match_type_all', 'Match ALL criteria'
+            = radio_button_tag 'match_type', 'any'
+            = label_tag 'match_type_any', 'Match ANY criteria'
+
+        .row
+          .col-md-3
+            %h3.mode Modes
+            = check_box_tag 'single_player'
+            = label_tag 'single_player', 'Single Player'
+            %br
+            = check_box_tag 'multiplayer'
+            = label_tag 'multiplayer', 'Multiplayer'
+            %br
+            = check_box_tag 'local_play'
+            = label_tag 'local_play', 'Local Play'
+            %br
+            = check_box_tag 'online_play'
+            = label_tag 'online_play', 'Online Play'
+            %br
+            = check_box_tag 'coop_play'
+            = label_tag 'coop_play', 'Co-op Play'
+            %br
+            = check_box_tag 'competitive_play'
+            = label_tag 'competitive_play', 'Competitive Play'
+
+
+          - [Platform, Genre, Style].each do |game_tag|
+            = render 'game_tag', game_tag: game_tag
+        .row
+          - [Theme, Engine, Subgenre, Community].each do |game_tag|
+            = render 'game_tag', game_tag: game_tag
+
+        .row
+          - [Award].each do |game_tag|
+            = render 'game_tag', game_tag: game_tag
+
+
+        .row
+          .col-md-12
+            = submit_tag 'Search', class: 'search-button pull-right'

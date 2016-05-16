@@ -1,0 +1,4 @@
+= link_to games_creator.name, creator_path(games_creator.creator)
+- if games_creator.logo.exists?
+  %br
+  = image_tag games_creator.logo.url(:thumb)

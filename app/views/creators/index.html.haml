@@ -1,0 +1,16 @@
+.row.standard-heading
+  .col-md-12
+    %h1 Creators
+    %h2 #{@creators.count} creators are in the database
+
+.standard-list
+  - @creators.each do |creator|
+    .row.standard-list-item
+      .col-md-3
+        = image_tag creator.logo.url(:thumb) if creator.logo?
+      .col-md-9
+        %h2= link_to_by_name creator
+        %h3= creator.roles.join(' & ')
+        %p= creator.description
+
+= render 'shared/explore_tags'

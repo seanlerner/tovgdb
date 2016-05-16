@@ -1,0 +1,14 @@
+.row.standard-heading
+  .col-md-12
+    %h1= tag_class.name.pluralize
+    %h2 #{tag_class.count} #{tag_class.name.downcase} tags are in the database
+
+.standard-list
+  - tag_class.all.each do |tag|
+    .row.standard-list-item
+      .col-md-12
+        %h2= link_to_by_name tag
+        %h3 #{tag.count} #{'game'.pluralize(tag.count)} tagged
+        %p= tag.description
+
+= render 'shared/explore_tags'

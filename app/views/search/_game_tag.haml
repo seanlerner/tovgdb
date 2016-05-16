@@ -1,0 +1,4 @@
+.col-md-3.tags
+  %h3{ class: game_tag.css_class }= game_tag.pluralized
+  = collection_check_boxes(game_tag.lowercase_pluralized, :ids, game_tag.all, :id, :name) do |tag|
+    = tag.label('data-value': tag.value) { tag.check_box + " #{tag.text}" }

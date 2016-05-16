@@ -1,0 +1,138 @@
+// Heading
+.game-heading {
+  border-bottom: 1px solid $grey;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+
+  h1 {
+    font-size: 44px;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 17px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-family: Vollkorn, serif;
+    font-size: 16px;
+  }
+}
+
+// Info
+.game-info {
+  background: $tan;
+  padding: 5px 30px 20px;
+
+  h2 {
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 15px 0 5px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  img {
+    margin-bottom: 15px;
+  }
+}
+
+// Media
+.game-media {
+  border-right: 4px solid $gold;
+  padding-right: 25px;
+
+  h2 {
+    font-size: 14px;
+  }
+}
+
+// Images
+.game-info-container {
+  padding-left: 0;
+}
+
+.game-images {
+  overflow: hidden;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.image-container {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 260px;
+
+  &:nth-child(even) {
+    float: left;
+  }
+
+  &:nth-child(odd) {
+    float: right;
+  }
+
+  .caption {
+    background: $black-50-percent;
+    bottom: 0;
+    color: $white;
+    padding: 5px 10px;
+    position: absolute;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+}
+
+// Videos
+.game-videos {
+  clear: both;
+  overflow: hidden;
+
+  h2 {
+    margin-top: 30px;
+  }
+}
+
+// Tags
+.game-tags h2 {
+  font-size: 14px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.game-tags h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 20px 0 12px;
+}
+
+.game-tags a {
+  color: $dark-blue;
+  display: inline-block;
+  font-weight: bold;
+  margin: 0 3px 9px 0;
+  padding: 7px 10px;
+  text-transform: uppercase;
+}
+
+.game-tags a:hover {
+  text-decoration: none;
+}

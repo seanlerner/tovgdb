@@ -1,0 +1,13 @@
+.row.standard-heading
+  .col-md-12
+    %h1 Database Tags
+
+.standard-list
+  - Game::TAGS.each do |tag|
+    .row.standard-list-item
+      .col-md-12
+        %h2= link_to tag.pluralized, tag
+        %h3 #{pluralize(tag.count, 'tag')} in the database
+
+= render 'shared/explore_tags'
+

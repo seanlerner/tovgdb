@@ -1,0 +1,35 @@
+.row.tag-heading
+  .col-md-3
+  .col-md-6
+    %h2= link_to tag.class, tag.class
+    %h1= tag.name
+    %p= tag.description
+  .col-md-3
+
+.row.tag-number-of-results
+  .col-md-3
+  .col-md-9
+    %b= tag.count
+    = 'game'.pluralize(tag.count)
+    are tagged with
+    %b= tag.name
+
+.row.tag-list-and-games
+  .col-md-3.tag-list-container
+    .tag-list
+      %h2{ class: tag.class.css_class }= tag.class.pluralized
+      - tag.class.non_zero_count.each do |tag_instance|
+        %b= link_to_by_name tag_instance
+        = "(#{tag_instance.count})"
+        %br
+
+  .col-md-9.tag-games
+    - tag.games.each do |game|
+      .row.game-summary-in-list
+        .col-md-3= image_tag game.game_images.first.image.url(:small) if game.game_images?
+        .col-md-9
+          %h2= link_to_by_name game
+          %h3= link_to_by_names game.developers
+          %p= game.shortened_description
+
+= render 'shared/explore_tags'

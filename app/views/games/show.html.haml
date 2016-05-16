@@ -1,0 +1,86 @@
+.row.game-heading
+  .col-md-3
+  .col-md-6
+    %h2= join_creators_with_ampersand(creators_to_join: @game.games_creators.developers).html_safe
+    %h1= @game.name
+    %p= @game.long_description
+  .col-md-3
+
+.row
+  .col-md-3.game-info-container
+    .game-info
+      %h2 Game Info
+
+      - if @game.released_on?
+        %h3 Release Date
+        %p= specificity_format_date @game.released_on
+
+      - if @game.developers == @game.publishers
+        = render 'creators', heading: %w(Developer Publisher), creators: @game.creators
+      - else
+        = render 'creators', heading: 'Developer', creators: @game.developers
+        = render 'creators', heading: 'Publisher', creators: @game.publishers
+
+      - if @game.platforms?
+        %h3= 'Platform'.pluralize @game.platforms.count
+        %p= @game.platforms.map { |platform| link_to_by_name platform }.join(', ').html_safe
+
+      - if @game.modes?
+        %h3 Modes
+        %p
+          - if @game.single_player_only?
+            = link_to 'Single Player', Mode.find(:single_player)
+          - elsif @game.number_of_players_defined?
+            = "#{link_to '1', id: :single_player, action: :show, controller: :modes}-#{link_to @game.maximum_number_of_players, id: :multiplayer, action: :show, controller: :modes}, ".html_safe
+            = @game.multiplayer_modes.map { |mode| link_to_by_name mode }.join(', ').html_safe
+          - else
+            = @game.modes.map { |mode| link_to_by_name mode }.join(', ').html_safe
+
+      - if @game.games_distribution_channels?
+        %h3 Distribution
+        %p= @game.games_distribution_channels.map { |distribution_channel| link_to_if distribution_channel.uri?,
+          distribution_channel.name, properly_linked_address(distribution_channel.uri) }.join(', ').html_safe
+
+      - if @game.pricing_models_for_display?
+        %h3 Pricing Models
+        %p= @game.pricing_models_for_display.join(', ')
+
+      - if @game.series?
+        %h3 Series
+        %p= link_to_by_name @game.series
+
+      - if @game.engine?
+        %h3 Engine
+        %p= link_to_by_name @game.engine
+
+      - if @game.genres?
+        %h3= 'Genre'.pluralize(@game.genres.count)
+        %p= @game.genres.map { |genre| link_to_by_name genre }.join(', ').html_safe
+
+      - if @game.links?
+        %h3 Links
+        %p= @game.links.map { |link| link_to link.name, properly_linked_address(link.uri) }.join(', ').html_safe
+
+  .col-md-6.game-media
+    .game-images
+      %h2 Images
+      - @game.game_images.each do |game_image|
+        .image-container
+          = image_tag game_image.image.url(:medium), style: "height: calc(250px / #{@game.most_common_image_aspect_ratio})"
+          - if game_image.caption?
+            .caption= game_image.caption
+
+    .game-videos
+      - @game.videos.each do |video|
+        %h2= video.title
+        = video_embed_code video
+
+  .col-md-3.game-tags
+    %h2 Listed Under
+    - Game::LISTED_UNDER_TAGS.each do |tag_category|
+      - tags = @game.send(tag_category.symbol_pluralized)
+      - if tags.present?
+        %div
+          %h3= tag_category.pluralized
+          - tags.each do |tag|
+            = link_to_by_name tag, class: tag_category.css_class

@@ -1,0 +1,34 @@
+// Site Colors
+$white: rgb(255, 255, 255);
+
+$black-50-percent: rgba(0, 0, 0, .5);
+$black: rgb(0, 0, 0);
+
+$grey: rgb(242, 242, 242);
+$grey-light: rgb(238, 238, 238);
+
+$dark-blue: rgb(4, 60, 85);
+$light-blue: rgb(130, 208, 218);
+$blue: rgb(0, 127, 165);
+
+$gold: rgb(253, 191, 59);
+
+$tan: rgb(251, 241, 227);
+
+// Tag Colors
+$tag-colors: (
+  award: rgb(246, 181, 200),        // Pink
+  community: $light-blue,           // Light Blue
+  engine: rgb(218, 111, 169),       // Dark-Pink
+  genre: rgb(244, 134, 48),         // Orange
+  mode: rgb(160, 191, 192),         // Blue-Grey
+  platform: rgb(94, 181, 117),      // Green
+  series: rgb(237, 90, 132),        // Darkest-Pink
+  style: $gold,                     // Gold
+  subgenre: rgb(241, 115, 93),      // Red
+  theme: rgb(120, 200, 181)         // Blue-Green
+);
+
+// Unused Colors
+// rgb(125, 148, 212) // Blue
+// rgb(149, 126, 214) // Purple -- too dark for a tag

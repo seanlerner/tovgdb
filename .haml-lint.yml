@@ -1,0 +1,6 @@
+linters:
+  LineLength:
+    max: 170
+    enabled: true
+    exclude:
+      - 'app/views/games/show.html.haml'

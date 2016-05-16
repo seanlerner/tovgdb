@@ -1,0 +1,3 @@
+- if creators.present?
+  %h3= [*heading].map { |creator_type| creator_type.pluralize(creators.count) }.join(' / ')
+  %p= render creators

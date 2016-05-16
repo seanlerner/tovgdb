@@ -1,0 +1,45 @@
+// Search Results
+
+// Refine & Results
+.search-browse-by-tag-and-results {
+  display: flex;
+}
+
+// Browse By Tag
+.search-browse-by-tag-container {
+  display: flex;
+}
+
+.search-browse-by-tag {
+  border-right: 4px solid $gold;
+  margin-right: 20px;
+  padding-right: 60px;
+
+  h2 {
+    font-size: 14px;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-top: 30px;
+
+    &:first-of-type {
+      margin-top: 20px;
+    }
+  }
+}
+
+// Results
+
+.search-results {
+  em {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .no-bold {
+    font-weight: normal;
+  }
+}
+

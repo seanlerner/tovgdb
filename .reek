@@ -1,0 +1,126 @@
+Attribute:
+  exclude:
+    - 'Creator#remove_logo'
+
+ControlParameter:
+  exclude:
+    - 'AdminGameTag#setup_game_tag_new_edit_for_admin'
+    - 'GameSearch#search_for'
+
+DuplicateMethodCall:
+  max_calls: 2
+  exclude:
+    - 'Description#shortened_description'
+
+
+FeatureEnvy:
+  exclude:
+    - 'AdminGameTag#setup_game_tag_new_edit_for_admin'
+    - 'ApplicationHelper#link_to_mode'
+    - 'GamesCreator#roles'
+    - 'GamesHelper#specificity_format_date'
+    - 'TovgdbSearch#criteria'
+    - 'TovgdbSearch#games_from_tag_class'
+    # remaining Feature Envy belongs to old database migrations
+    - AddModesToGames#change
+    - AddNewFieldsFromMediawikiToCompanies#change
+    - AddNewFieldsFromMediawikiToCreators#change
+    - AddPricingToGames#change
+    - CreateAwards#change
+    - CreateCommunities#change
+    - CreateCompanies#change
+    - CreateCompanies#change
+    - CreateCreators#change
+    - CreateDistributionChannels#change
+    - CreateEngines#change
+    - CreateFrameworks#change
+    - CreateGamePlatforms#change
+    - CreateGames#change
+    - CreateGamesAwards#change
+    - CreateGamesCommunities#change
+    - CreateGamesCompanies#change
+    - CreateGamesCreators#change
+    - CreateGamesDistributionChannels#change
+    - CreateGamesGenres#change
+    - CreateGamesStyles#change
+    - CreateGamesSubgenres#change
+    - CreateGenres#change
+    - CreateLinks#change
+    - CreateLinkTypes#change
+    - CreateMenuItems#change
+    - CreatePages#change
+    - CreatePlatforms#change
+    - CreateSeries#change
+    - CreateStyles#change
+    - CreateSubgenres#change
+    - CreateThemes#change
+    - CreateVideos#change
+    - CreateWhereToGetsForGames#change
+    - DeviseCreateAdminUsers#change
+    - NewGameAttributes#change
+
+IrresponsibleModule:
+  enabled: false
+
+NilCheck:
+  exclude:
+  - 'NumberOfPlayers#number_of_players_as_numerals'
+
+TooManyStatements:
+  enabled: false
+
+TooManyInstanceVariables:
+  exclude:
+    - 'Mode'
+
+UtilityFunction:
+  exclude:
+    - 'ApplicationHelper#number_of_players_formatted'
+    - 'ApplicationHelper#properly_linked_address'
+    - 'ApplicationHelper#video_embed_code'
+    - 'GamesHelper#jan_1?'
+    - 'SharedMethods#remove_last_word'
+
+UncommunicativeVariableName:
+  exclude:
+  # UncommunicativeVariableName belongs to old database migrations & tovgdb import script
+  - AddModesToGames#change
+  - AddNewFieldsFromMediawikiToCompanies#change
+  - AddNewFieldsFromMediawikiToCreators#change
+  - AddNewFieldsFromMediawikiToGamess#change
+  - AddPricingToGames#change
+  - CreateActiveAdminComments#self.up
+  - CreateAwards#change
+  - CreateCommunities#change
+  - CreateCompanies#change
+  - CreateCompanies#change
+  - CreateCreators#change
+  - CreateDistributionChannels#change
+  - CreateEngines#change
+  - CreateFrameworks#change
+  - CreateGameImages#change
+  - CreateGamePlatforms#change
+  - CreateGames#change
+  - CreateGamesAwards#change
+  - CreateGamesCommunities#change
+  - CreateGamesCompanies#change
+  - CreateGamesCreators#change
+  - CreateGamesDistributionChannels#change
+  - CreateGamesGenres#change
+  - CreateGamesStyles#change
+  - CreateGamesSubgenres#change
+  - CreateGenres#change
+  - CreateLinks#change
+  - CreateLinkTypes#change
+  - CreateMenuItems#change
+  - CreatePages#change
+  - CreatePlatforms#change
+  - CreateSeries#change
+  - CreateStyles#change
+  - CreateSubgenres#change
+  - CreateThemes#change
+  - CreateVideos#change
+  - CreateWhereToGetsForGames#change
+  - DeviseCreateAdminUsers#change
+  - NewGameAttributes#change
+  - Tovgdb::Application

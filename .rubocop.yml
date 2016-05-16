@@ -1,0 +1,107 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.2
+  DisplayCopNames: true
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'lib/webkit_stderr_with_qt_plugin_messages_suppressed.rb'
+    - '/**/tovgdb.rake'
+
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - '/**/admin_game_tag.rb'
+    - '/**/active_admin.rb'
+    - '/**/20160211150539_create_indexs.rb'
+    - '/**/20160317155449_no_nil_allowed_for_string_and_text_fields.rb'
+    - '/**/tovgdb_spec_helper.rb'
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Exclude:
+  - '/**/application_helper.rb'
+
+Metrics/BlockNesting:
+  Enabled: true
+  Exclude:
+    - '/**/tovgdb.rake'
+
+Metrics/LineLength:
+  Max: 170
+  Enabled: true
+  Exclude:
+    - '/**/application_helper.rb'
+    - '/**/description.rb'
+    - '/**/20151207173441_devise_create_admin_users.rb'
+    - '/**/tovgdb.rake'
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - '/**/game_search.rb'
+    - '/**/admin_game_tag.rb'
+    - '/**/active_admin.rb'
+    - '/**/application_helper.rb'
+    - '/**/game_search.rb'
+    - '/**/active_admin.rb'
+    - '/**/20151207173441_devise_create_admin_users.rb'
+    - '/**/20151207173444_create_active_admin_comments.rb'
+    - '/**/20160129173455_create_themes.rb'
+    - '/**/20160211150539_create_indexs.rb'
+    - '/**/20160317155449_no_nil_allowed_for_string_and_text_fields.rb'
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Exclude:
+    - '/**/application_helper.rb'
+
+
+Rails/FindEach:
+  Enabled: true
+  Exclude:
+    - '/**/app/models/mode.rb'
+
+RSpec/DescribeClass:
+  Enabled: true
+  Exclude:
+    - '/**/admin/session_spec.rb'
+    - '/**/admin/tags_spec.rb'
+    - '/**/admin/tags_spec.rb'
+    - '/**/game_associations_spec.rb'
+
+# RSpec/FilePath:
+#   Enabled: true
+#   Exclude:
+#     - '/**/creators_spec.rb'
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  Exclude:
+    - '/**/Guardfile.rb'
+    - '/**/Guardfile'
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+
+Style/FileName:
+  Enabled: true
+  Exclude:
+    - '/**/Guardfile.rb'
+    - 'Capfile'
+    - 'Gemfile'
+
+Style/SingleLineBlockParams:
+  Enabled: true
+  Exclude:
+    - '/**/tovgdb_search.rb'

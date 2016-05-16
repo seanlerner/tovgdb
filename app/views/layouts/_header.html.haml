@@ -1,0 +1,26 @@
+-# - if Rails.env.development?
+-#   .container
+-#     = console
+
+.container.title
+  %h1 Toronto Videogame Database
+.main-nav.navbar.navbar-default.navbar-static-top
+  .container
+    %button.navbar-toggle{ type: 'button', 'data-toggle': 'collapse', 'data-target': '.navbar-responsive-collapse' }
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav
+        = nav_link 'Home', root_path
+        = nav_link 'Games', games_path
+        = nav_link 'Creators', creators_path
+        = nav_link 'Tags', tags_path
+        = nav_link 'Advanced Search', search_path
+
+      = form_tag search_results_path, method: :get, class: 'form-inline search-database' do
+        %label{ for: 'keywords' }
+          %i.fa.fa-2x.fa-search
+        %input.form-control#q{ name: 'keywords', placeholder: 'Search the database', type: 'text' }
+        = hidden_field_tag 'match_type', 'all'
+        %button.btn.btn-primary{ type: 'submit' } Search
