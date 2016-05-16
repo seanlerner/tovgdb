@@ -8,7 +8,7 @@ The TOVGDB is a Hand Eye Society initiative funded in part by the Ontario Govern
 
 ## Status
 
-The TOVGDB is currently in development with the goal of launching in September, 2016.
+The TOVGDB is currently in development with a launch date set for September, 2016.
 
 ## Setting up a Videogame Database in your city
 
