@@ -43,6 +43,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'jazz_hands2'
+  gem 'parallel_tests'
 end
 
 group :development do

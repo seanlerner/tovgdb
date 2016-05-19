@@ -1,3 +1,7 @@
+# Rails
+require File.expand_path('../boot', __FILE__)
+require 'rails/all'
+
 # Load local environment
 require 'dotenv'
 root = '~/.local/tovgdb'
@@ -6,10 +10,6 @@ Dotenv.load(
   File.join(root, '.env.local'),
   File.join(root, ".env.#{Rails.env}")
 )
-
-# Rails
-require File.expand_path('../boot', __FILE__)
-require 'rails/all'
 
 # Elastic Search
 require 'elasticsearch/rails/instrumentation'
