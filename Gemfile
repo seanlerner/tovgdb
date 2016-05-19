@@ -99,6 +99,7 @@ end
 group :test do
   gem 'rspec', '=3.4.0'
   gem 'rspec-rails', '=3.4.2'
+  gem 'rspec-instafail'
   gem 'factory_girl_rails'
   gem 'rack-test'
   gem 'capybara'
