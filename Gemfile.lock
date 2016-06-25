@@ -133,6 +133,7 @@ GEM
       thor (~> 0.18)
     byebug (8.2.4)
     callsite (0.0.11)
+    cancancan (1.15.0)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -392,9 +393,6 @@ GEM
       mimemagic (= 0.3.0)
     paperclip-meta (2.0.0)
       paperclip (>= 3.0.2, < 5.0)
-    parallel (1.8.0)
-    parallel_tests (2.5.0)
-      parallel
     parser (2.3.0.7)
       ast (~> 2.2)
     passenger (5.0.26)
@@ -612,6 +610,7 @@ DEPENDENCIES
   binding_of_caller
   bullet
   byebug
+  cancancan (~> 1.15)
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -652,7 +651,6 @@ DEPENDENCIES
   mysql2
   paperclip
   paperclip-meta
-  parallel_tests
   passenger (>= 5.0.25)
   pry-rails
   quiet_assets

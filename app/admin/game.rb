@@ -8,6 +8,7 @@ ActiveAdmin.register Game do
     column 'Name', sortable: :name do |game|
       link_to game.name, admin_game_path(game)
     end
+    column 'Published', sortable: :published
     column :series, sortable: 'series.name'
     column 'Developers' do |game|
       game.games_creators.developers.map { |developer| developer.creator.name }.join('<br />').html_safe
@@ -52,6 +53,7 @@ ActiveAdmin.register Game do
   show do
     attributes_table do
       row :name
+      row :published
       row :developers do
         if game.developers?
           game.games_creators.developers.each do |developer|
@@ -155,8 +157,8 @@ ActiveAdmin.register Game do
               video_ids: [], videos_attributes: [:id, :game_id, :title, :platform, :code, :video_type, :_update, :_create, :_destroy],
               games_platforms_ids: [], games_platforms_attributes: [:id, :game_id, :platform_id, :released_on, :_destroy],
               games_distribution_channels_ids: [], games_distribution_channels_attributes:
-                [:id, :game_id, :distribution_channel_id, :released_on, :uri, :_destroy]
-            ]
+                [:id, :game_id, :distribution_channel_id, :released_on, :uri, :_destroy]]
+    params << :published if current_admin_user.role == 'Super Admin'
     Game::MANY_TAGS.each do |tag|
       params.push "#{tag.lowercase}_ids".to_sym => [], "#{tag.lowercase}_attributes".to_sym => [:id, tag, :_update, :_create, :_destroy]
     end
@@ -168,6 +170,7 @@ ActiveAdmin.register Game do
 
     f.inputs 'Game Details' do
       f.input :name
+      f.input :published if current_admin_user.role == 'Super Admin'
       f.input :series, collection: Series.all
       f.input :engine, collection: Engine.all
       f.input :published_on, hint: 'Public date game was added to the database.'

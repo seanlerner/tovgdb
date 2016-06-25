@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412143814) do
+ActiveRecord::Schema.define(version: 20160625174549) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "role",                   limit: 255
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
@@ -85,7 +86,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "distribution_channels", force: :cascade do |t|
     t.string   "name",                              limit: 255
-    t.string   "description",                       limit: 255
+    t.string   "description",                       limit: 255, null: false
     t.string   "category",                          limit: 255
     t.integer  "games_distribution_channels_count", limit: 4
     t.datetime "created_at",                                    null: false
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "engines", force: :cascade do |t|
     t.string   "name",        limit: 255,             null: false
-    t.string   "description", limit: 255
+    t.string   "description", limit: 255,             null: false
     t.integer  "games_count", limit: 4,   default: 0, null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "game_images", force: :cascade do |t|
     t.integer  "game_id",            limit: 4,     null: false
-    t.string   "caption",            limit: 255
+    t.string   "caption",            limit: 255,   null: false
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
@@ -121,8 +122,8 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name",                              limit: 255,               null: false
-    t.string   "short_description",                 limit: 255
-    t.text     "long_description",                  limit: 65535
+    t.string   "short_description",                 limit: 255,               null: false
+    t.text     "long_description",                  limit: 65535,             null: false
     t.date     "published_on"
     t.integer  "games_creators_count",              limit: 4,     default: 0, null: false
     t.datetime "created_at",                                                  null: false
@@ -155,6 +156,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
     t.boolean  "pay"
     t.boolean  "not_available"
     t.integer  "games_distribution_channels_count", limit: 4,     default: 0, null: false
+    t.boolean  "published"
   end
 
   add_index "games", ["engine_id"], name: "index_games_on_engine_id", using: :btree
@@ -241,7 +243,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "name",               limit: 255,             null: false
-    t.string   "description",        limit: 255
+    t.string   "description",        limit: 255,             null: false
     t.integer  "games_genres_count", limit: 4,   default: 0, null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
@@ -265,7 +267,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
     t.string  "object_has_link_type", limit: 255
     t.integer "link_type_id",         limit: 4,     null: false
     t.text    "uri",                  limit: 65535, null: false
-    t.string  "description_override", limit: 255
+    t.string  "description_override", limit: 255,   null: false
   end
 
   add_index "links", ["object_has_link_id", "link_type_id"], name: "index_links_on_object_has_link_id_and_link_type_id", using: :btree
@@ -287,7 +289,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
   create_table "pages", force: :cascade do |t|
     t.string   "title",      limit: 255,   null: false
     t.string   "slug",       limit: 255,   null: false
-    t.text     "content",    limit: 65535
+    t.text     "content",    limit: 65535, null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -296,18 +298,18 @@ ActiveRecord::Schema.define(version: 20160412143814) do
   add_index "pages", ["title"], name: "index_pages_on_title", unique: true, using: :btree
 
   create_table "platforms", force: :cascade do |t|
-    t.string   "name",                  limit: 255,              null: false
-    t.string   "description",           limit: 255, default: "", null: false
-    t.integer  "games_platforms_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.string   "name",                  limit: 255,             null: false
+    t.string   "description",           limit: 255,             null: false
+    t.integer  "games_platforms_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   add_index "platforms", ["name"], name: "index_platforms_on_name", unique: true, using: :btree
 
   create_table "series", force: :cascade do |t|
     t.string   "name",        limit: 255,             null: false
-    t.string   "description", limit: 255
+    t.string   "description", limit: 255,             null: false
     t.integer  "games_count", limit: 4,   default: 0, null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -317,7 +319,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "styles", force: :cascade do |t|
     t.string   "name",               limit: 255,             null: false
-    t.string   "description",        limit: 255
+    t.string   "description",        limit: 255,             null: false
     t.integer  "games_styles_count", limit: 4,   default: 0, null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
@@ -327,7 +329,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "subgenres", force: :cascade do |t|
     t.string   "name",                  limit: 255,             null: false
-    t.string   "description",           limit: 255
+    t.string   "description",           limit: 255,             null: false
     t.integer  "games_subgenres_count", limit: 4,   default: 0, null: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
@@ -337,7 +339,7 @@ ActiveRecord::Schema.define(version: 20160412143814) do
 
   create_table "themes", force: :cascade do |t|
     t.string   "name",               limit: 255,             null: false
-    t.string   "description",        limit: 255
+    t.string   "description",        limit: 255,             null: false
     t.integer  "games_themes_count", limit: 4,   default: 0, null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
@@ -358,6 +360,6 @@ ActiveRecord::Schema.define(version: 20160412143814) do
   add_index "videos", ["game_id"], name: "index_videos_on_game_id", using: :btree
 
   add_foreign_key "game_images", "games"
-  add_foreign_key "games_creators", "creators"
+  add_foreign_key "games_creators", "creators", name: "fk_rails_sean_custom"
   add_foreign_key "games_creators", "games"
 end

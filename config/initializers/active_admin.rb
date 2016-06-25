@@ -2,6 +2,8 @@ ActiveAdmin.setup do |config|
   config.site_title = 'TOVGDB Admin'
   config.site_title_link = '/'
   config.authentication_method = :authenticate_admin_user!
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  config.on_unauthorized_access = :access_denied
   config.current_user_method = :current_admin_user
   config.logout_link_path = :destroy_admin_user_session_path
   config.root_to = 'games#index'

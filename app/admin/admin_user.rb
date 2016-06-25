@@ -1,11 +1,12 @@
 ActiveAdmin.register AdminUser do
   menu priority: 999
 
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :role
 
   # Listing
   index do
     column :email
+    column :role
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -26,7 +27,18 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :role, collection: AdminUser::ROLES
     end
     f.actions
+  end
+
+  controller do
+    def update
+      if params[:admin_user][:password].blank? && params[:admin_user][:password_confirmation].blank?
+        params[:admin_user].delete('password')
+        params[:admin_user].delete('password_confirmation')
+      end
+      super
+    end
   end
 end
