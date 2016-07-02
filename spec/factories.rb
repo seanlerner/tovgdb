@@ -17,6 +17,7 @@ FactoryGirl.define do
     long_description ''
     local_play true
     online_play true
+    published true
     trait :no_game_image do
       # nothing special.. just no image attached
     end
