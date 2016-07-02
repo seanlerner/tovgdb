@@ -11,6 +11,9 @@ module GameModelHelpers
             analyzer: 'standard'
           }
         },
+        filter: {
+          term:  { published: true }
+        },
         highlight: {
           fields: { '*': {} }
         }

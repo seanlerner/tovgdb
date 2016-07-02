@@ -24,7 +24,7 @@
         %br
 
   .col-md-9.tag-games
-    - tag.games.each do |game|
+    - tag.games.published.each do |game|
       .row.game-summary-in-list
         .col-md-3= image_tag game.game_images.first.image.url(:small) if game.game_images?
         .col-md-9

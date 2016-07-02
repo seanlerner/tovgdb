@@ -30,7 +30,7 @@ class TovgdbSearch
     games_from_elastic_search = Game.search_for(keywords, @params[:match_type]).sort_by { |elastic_search_result| elastic_search_result.id.to_i }
     return unless games_from_elastic_search
     game_ids = games_from_elastic_search.map { |game| game.id.to_i }
-    games_from_database = Game.find(game_ids)
+    games_from_database = Game.published.find(game_ids)
     add_games_to_results(keyword_results_merged(games_from_database, games_from_elastic_search, criteria))
   end
 
@@ -69,7 +69,7 @@ class TovgdbSearch
     [:single_player, :multiplayer, :local_play, :online_play, :coop_play, :competitive_play].each do |mode|
       next unless @params[mode]
       @criteria << criteria = { category: :modes, criteria: Mode.find(mode).name }
-      Game.includes(:game_images).send(mode).find_each do |game|
+      Game.published.includes(:game_images).send(mode).find_each do |game|
         game_data = { game: game, criteria: criteria }
         add_game_to_results(game_data)
       end

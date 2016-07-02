@@ -1,4 +1,4 @@
-generate_new_search_index = false
+generate_new_search_index = true
 
 if generate_new_search_index && (Rails.env.development? || Rails.env.production?)
   @logger = Rails.logger

@@ -45,6 +45,7 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :games_platforms, allow_destroy: true
 
   # Scopes
+  scope :published, -> { where(published: true) }
   scope :single_player, -> { where('minimum_number_of_players = 1') }
   scope :multiplayer, -> { where('maximum_number_of_players >= 2 OR competitive_play = 1 OR coop_play = 1') }
   scope :local_play, -> { where(local_play: true) }
