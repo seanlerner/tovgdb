@@ -28,9 +28,6 @@ module Tovgdb
       g.helper_specs    false
     end
 
-    # Logging
-    config.log_level = :unknown
-
     # Debugging
     config.action_controller.action_on_unpermitted_parameters = :raise
   end

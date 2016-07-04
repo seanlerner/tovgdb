@@ -44,7 +44,6 @@ Rails.application.configure do
 
   # config.log_level = :debug
   config.log_level = :info
-  Rails.logger = Logger.new(STDOUT)
 
   config.after_initialize do
     # Bullet.enable = true
