@@ -9,10 +9,6 @@ class TovgdbSearch
     @results = @games
   end
 
-  def mode_criteria
-    criteria.select { |criterion| criterion[:category] == :mode }.map { |mode| mode[:criteria] }
-  end
-
   private
 
   def populate_games
