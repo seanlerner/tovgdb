@@ -8,6 +8,7 @@ ActiveAdmin.register Creator do
     column :name, sortable: :name do |creator|
       link_to creator.name, admin_creator_path(creator)
     end
+    column 'Published', sortable: :published
     column '# of Games', sortable: :games_creators_count do |creator|
       creator.games.count
     end
@@ -31,6 +32,7 @@ ActiveAdmin.register Creator do
   show do
     attributes_table do
       row :name
+      row :published
       row :description
       row :created_at
       row :updated_at
@@ -72,16 +74,20 @@ ActiveAdmin.register Creator do
   end
 
   # New / Edit
-  permit_params :name, :description,
-                :logo, :remove_logo,
-                game_ids: [], game_attributes: [:id, :_update, :_create, :_destroy],
-                link_ids: [], links_attributes: [:id, :creator_id, :link_type_id, :uri, :description_override, :_destroy]
+  permit_params do
+    params = [:name, :description,
+              :logo, :remove_logo,
+              game_ids: [], game_attributes: [:id, :_update, :_create, :_destroy],
+              link_ids: [], links_attributes: [:id, :creator_id, :link_type_id, :uri, :description_override, :_destroy]]
+    params << :published if current_admin_user.role == 'Super Admin'
+  end
 
   form html: { multipart: true } do |f|
     render partial: 'admin/admin_base_error_message', locals: { f: f }
 
     f.inputs do
       f.input :name
+      f.input :published if current_admin_user.role == 'Super Admin'
       f.input :description
       if f.object.persisted? && f.object.logo.exists?
         f.input :remove_logo, as: :boolean, required: :false, label: 'Remove Logo?'

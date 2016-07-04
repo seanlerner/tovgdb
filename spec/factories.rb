@@ -63,6 +63,7 @@ FactoryGirl.define do
 
   factory Creator do
     name
+    published true
     description ''
     trait :logo do
       logo Rack::Test::UploadedFile.new('spec/support/test.png', 'image/jpg')

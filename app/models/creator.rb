@@ -22,6 +22,7 @@ class Creator < ActiveRecord::Base
 
   # Scopes
   default_scope { order(name: :asc) }
+  scope :published, -> { where(published: true) }
 
   # Instance Methods
   def roles
