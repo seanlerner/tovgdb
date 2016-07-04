@@ -24,7 +24,8 @@ ActiveAdmin.register LinkType do
       'Delete Link Type', admin_link_type_path(link_type),
       method: :delete,
       data: { confirm: 'WARNING! Deleting this link type will delete all links using this link type in games and creators.
-                        Are you sure you want to delete this link type?' })
+                        Are you sure you want to delete this link type?' }
+    )
   end
 
   action_item :new, only: :show do

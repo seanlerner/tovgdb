@@ -17,6 +17,7 @@ Documentation:
 
 Metrics/AbcSize:
   Enabled: true
+  Max: 16
   Exclude:
     - '/**/admin_game_tag.rb'
     - '/**/active_admin.rb'
@@ -79,6 +80,9 @@ RSpec/DescribeClass:
     - '/**/admin/tags_spec.rb'
     - '/**/admin/tags_spec.rb'
     - '/**/game_associations_spec.rb'
+
+RSpec/ExampleLength:
+  Enabled: false
 
 # RSpec/FilePath:
 #   Enabled: true
