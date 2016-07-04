@@ -7,10 +7,15 @@ ControlParameter:
     - 'AdminGameTag#setup_game_tag_new_edit_for_admin'
     - 'GameSearch#search_for'
 
+DataClump:
+  exclude:
+    - 'TovgdbSearch'
+
 DuplicateMethodCall:
   max_calls: 2
   exclude:
     - 'Description#shortened_description'
+    - 'update'
 
 
 FeatureEnvy:
@@ -62,9 +67,17 @@ FeatureEnvy:
 IrresponsibleModule:
   enabled: false
 
+NestedIterators:
+  exclude:
+    - 'TovgdbSearch'
+
 NilCheck:
   exclude:
   - 'NumberOfPlayers#number_of_players_as_numerals'
+
+TooManyMethods:
+  exclude:
+    - 'TovgdbSearch'
 
 TooManyStatements:
   enabled: false
@@ -80,6 +93,7 @@ UtilityFunction:
     - 'ApplicationHelper#video_embed_code'
     - 'GamesHelper#jan_1?'
     - 'SharedMethods#remove_last_word'
+    - 'TovgdbSearch'
 
 UncommunicativeVariableName:
   exclude:
