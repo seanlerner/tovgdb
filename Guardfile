@@ -40,7 +40,7 @@ guard 'kjell', cmd: 'reek -s', exclude: 'tovgdb.rake', all_on_start: true do
 end
 
 # rubocop
-guard :rubocop, cli: '-D -S' do
+guard :rubocop, cli: '-F -D -S' do
   watch(/.+\.rb$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end

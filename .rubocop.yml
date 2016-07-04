@@ -73,6 +73,10 @@ Rails/FindEach:
   Exclude:
     - '/**/app/models/mode.rb'
 
+# TODO: enable this and address issues
+Rails/OutputSafety:
+  Enabled: false
+
 RSpec/DescribeClass:
   Enabled: true
   Exclude:

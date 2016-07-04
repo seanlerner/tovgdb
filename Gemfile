@@ -61,8 +61,8 @@ group :development do
   gem 'colorize'
 
   # better code
-  gem 'rubocop', '= 0.39.0'
-  gem 'rubocop-rspec', '= 1.4.1'
+  gem 'rubocop', '= 0.41.1'
+  gem 'rubocop-rspec', '= 1.5.0'
   gem 'haml_lint', require: false, git: 'https://github.com/brigade/haml-lint'
   gem 'scss_lint', require: false
   gem 'rails_best_practices'
