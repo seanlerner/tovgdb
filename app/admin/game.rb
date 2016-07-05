@@ -53,6 +53,7 @@ ActiveAdmin.register Game do
   show do
     attributes_table do
       row :name
+      row :alternate_names
       row :published
       row :developers do
         if game.developers?
@@ -147,7 +148,7 @@ ActiveAdmin.register Game do
 
   # New / Edit
   permit_params do
-    params = [:name, :series_id, :engine_id, :published_on, :initial_release_on, :short_description, :long_description, :sources,
+    params = [:name, :alternate_names, :series_id, :engine_id, :published_on, :initial_release_on, :short_description, :long_description, :sources,
               :digital_distribution, :retail_distribution,
               :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
               :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
@@ -170,6 +171,7 @@ ActiveAdmin.register Game do
 
     f.inputs 'Game Details' do
       f.input :name
+      f.input :alternate_names
       f.input :published if current_admin_user.role == 'Super Admin'
       f.input :series, collection: Series.all
       f.input :engine, collection: Engine.all

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705144121) do
+ActiveRecord::Schema.define(version: 20160705145420) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160705144121) do
     t.integer  "games_distribution_channels_count", limit: 4,     default: 0, null: false
     t.boolean  "published"
     t.text     "sources",                           limit: 65535
+    t.string   "alternate_names",                   limit: 255
   end
 
   add_index "games", ["engine_id"], name: "index_games_on_engine_id", using: :btree
