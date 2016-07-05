@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705145420) do
+ActiveRecord::Schema.define(version: 20160705145859) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160705145420) do
     t.text     "old_raw_mediawiki_data", limit: 65535
     t.date     "founded_on"
     t.boolean  "published"
+    t.string   "alternate_names",        limit: 255
   end
 
   add_index "creators", ["founded_on"], name: "index_creators_on_founded_on", using: :btree

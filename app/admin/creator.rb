@@ -32,6 +32,7 @@ ActiveAdmin.register Creator do
   show do
     attributes_table do
       row :name
+      row :alternate_names
       row :published
       row :description
       row :created_at
@@ -75,7 +76,7 @@ ActiveAdmin.register Creator do
 
   # New / Edit
   permit_params do
-    params = [:name, :description,
+    params = [:name, :alternate_names, :description,
               :logo, :remove_logo,
               game_ids: [], game_attributes: [:id, :_update, :_create, :_destroy],
               link_ids: [], links_attributes: [:id, :creator_id, :link_type_id, :uri, :description_override, :_destroy]]
@@ -87,6 +88,7 @@ ActiveAdmin.register Creator do
 
     f.inputs do
       f.input :name
+      f.input :alternate_names
       f.input :published if current_admin_user.role == 'Super Admin'
       f.input :description
       if f.object.persisted? && f.object.logo.exists?
