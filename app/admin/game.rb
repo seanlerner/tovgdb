@@ -73,7 +73,7 @@ ActiveAdmin.register Game do
       [:series, :engine, :published_on, :initial_release_on,
        :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
        :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
-       :short_description, :long_description, :digital_distribution, :retail_distribution].each do |game_attribute|
+       :short_description, :long_description, :sources, :digital_distribution, :retail_distribution].each do |game_attribute|
         row game_attribute
       end
       row :platforms do
@@ -147,7 +147,7 @@ ActiveAdmin.register Game do
 
   # New / Edit
   permit_params do
-    params = [:name, :series_id, :engine_id, :published_on, :initial_release_on, :short_description, :long_description,
+    params = [:name, :series_id, :engine_id, :published_on, :initial_release_on, :short_description, :long_description, :sources,
               :digital_distribution, :retail_distribution,
               :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
               :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
@@ -177,7 +177,7 @@ ActiveAdmin.register Game do
       f.input :initial_release_on, hint: 'Date game was released to the public. Set to January 1 to display only the year on the public site.'
       [:minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
        :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
-       :short_description, :long_description, :digital_distribution, :retail_distribution].each do |game_attribute|
+       :short_description, :long_description, :sources, :digital_distribution, :retail_distribution].each do |game_attribute|
         f.input game_attribute
       end
     end
