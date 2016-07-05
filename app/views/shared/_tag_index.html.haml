@@ -8,7 +8,7 @@
     .row.standard-list-item
       .col-md-12
         %h2= link_to_by_name tag
-        %h3 #{tag.count} #{'game'.pluralize(tag.count)} tagged
+        %h3 #{tag.published_games.count} #{'game'.pluralize(tag.published_games.count)} tagged
         %p= tag.description
 
 = render 'shared/explore_tags'

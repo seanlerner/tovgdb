@@ -9,8 +9,8 @@
 .row.tag-number-of-results
   .col-md-3
   .col-md-9
-    %b= tag.count
-    = 'game'.pluralize(tag.count)
+    %b= tag.published_games.count
+    = 'game'.pluralize(tag.published_games.count)
     are tagged with
     %b= tag.name
 
@@ -20,7 +20,7 @@
       %h2{ class: tag.class.css_class }= tag.class.pluralized
       - tag.class.non_zero_count.each do |tag_instance|
         %b= link_to_by_name tag_instance
-        = "(#{tag_instance.count})"
+        = "(#{tag_instance.published_games.count})"
         %br
 
   .col-md-9.tag-games
