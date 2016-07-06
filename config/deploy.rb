@@ -1,5 +1,9 @@
 require 'git'
 require 'colorize'
+require 'dotenv'
+
+Dotenv.load('~/.local/tovgdb/.env')
+
 set :application, 'tovgdb'
 set :repo_url, 'git@github.com:seanlerner/tovgdb.git'
 set :rbenv_path, '/home/deploy/.rbenv/'
