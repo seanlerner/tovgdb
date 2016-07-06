@@ -5,6 +5,8 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
-require 'bundler/audit/task'
-Bundler::Audit::Task.new
-task default: 'bundle:audit'
+if ENV['RAILS_ENV'] == 'development'
+  require 'bundler/audit/task'
+  Bundler::Audit::Task.new
+  task default: 'bundle:audit'
+end
