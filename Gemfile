@@ -36,6 +36,7 @@ gem 'active_record_union'
 # coding tools
 gem 'haml'
 gem 'haml-rails'
+gem 'colorize'
 
 group :production do
   gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
