@@ -59,7 +59,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'colorize'
 
   # better code
   gem 'rubocop', '= 0.41.1'
