@@ -23,15 +23,36 @@ describe AdminUser do
   end
 
   it 'updates existing' do
-    admin_user_to_be_updated = create(:admin_user, email: 'admin_user_to_be_deleted@example.com')
-    different_email = 'different@example.com'
+    admin_user_to_be_updated = create(:admin_user, email: 'intial_admin_user_email@example.com')
+    updated_email = 'intial_admin_user_email@example.com'
     visit "/admin/admin_users/#{admin_user_to_be_updated.id}/edit"
-    fill_in 'admin_user_email', with: different_email
+    fill_in 'admin_user_email', with: updated_email
     fill_in 'admin_user_password', with: 'password'
     fill_in 'admin_user_password_confirmation', with: 'password'
     click_button 'Update Admin user'
     expect(page).to have_content 'Admin user was successfully updated.'
-    expect(page).to have_content different_email
+    expect(page).to have_content updated_email
+  end
+
+  it 'updates existing without a password' do
+    admin_user_to_be_updated = create(:admin_user, email: 'intial_admin_user_email@example.com')
+    updated_email = 'intial_admin_user_email@example.com'
+    visit "/admin/admin_users/#{admin_user_to_be_updated.id}/edit"
+    fill_in 'admin_user_email', with: updated_email
+    fill_in 'admin_user_password', with: ''
+    fill_in 'admin_user_password_confirmation', with: ''
+    click_button 'Update Admin user'
+    expect(page).to have_content 'Admin user was successfully updated.'
+    expect(page).to have_content updated_email
+  end
+
+  it 'does not update with non-matching passwords' do
+    admin_user_to_be_updated = create(:admin_user, email: 'admin@example.com')
+    visit "/admin/admin_users/#{admin_user_to_be_updated.id}/edit"
+    fill_in 'admin_user_password', with: 'password'
+    fill_in 'admin_user_password_confirmation', with: 'different_password'
+    click_button 'Update Admin user'
+    expect(page).to have_content 'Could not save AdminUser. Please correct and try again'
   end
 
   it 'deletes' do

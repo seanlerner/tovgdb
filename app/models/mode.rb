@@ -8,7 +8,6 @@ class Mode
 
   # Class Methods
   class << self
-    # attr_accessor :all
     attr_reader :all
 
     delegate :count, to: :all

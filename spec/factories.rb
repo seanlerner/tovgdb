@@ -47,6 +47,14 @@ FactoryGirl.define do
       minimum_number_of_players 1
       online_play true
     end
+    trait :supporting_all_modes do
+      minimum_number_of_players 1
+      maximum_number_of_players 2
+      local_play true
+      online_play true
+      coop_play true
+      competitive_play true
+    end
   end
 
   factory GameImage do
