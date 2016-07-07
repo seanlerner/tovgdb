@@ -1,4 +1,4 @@
-# Toronto Videogame Database
+# Toronto Videogame Database [![Build Status](https://travis-ci.org/seanlerner/tovgdb.svg?branch=master)](https://travis-ci.org/seanlerner/tovgdb)
 
 Welcome to the Toronto Videogame Database, aka TOVGDB.
 
