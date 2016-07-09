@@ -5,7 +5,7 @@ module GameHasManyTagModule
   included do
     # Associations
     has_many game_join_model_as_symbol
-    has_many :games, through: game_join_model_as_symbol
+    has_many :games, through: game_join_model_as_symbol, dependent: :destroy
 
     # Delegations
     delegate :count, to: game_join_model
