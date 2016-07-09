@@ -11,7 +11,8 @@ set :rbenv_path, '/home/deploy/.rbenv/'
 set :deploy_to, '/home/deploy/tovgdb'
 
 set :linked_files, %w(config/database.yml .env)
-set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)
+set :bundle_binstubs, nil
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
