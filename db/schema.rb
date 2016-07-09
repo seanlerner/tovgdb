@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709192648) do
+ActiveRecord::Schema.define(version: 20160709210349) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -48,21 +48,21 @@ ActiveRecord::Schema.define(version: 20160709192648) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "awards", force: :cascade do |t|
-    t.string   "name",               limit: 255,              null: false
-    t.string   "description",        limit: 255, default: "", null: false
-    t.integer  "games_awards_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.string   "name",               limit: 255,             null: false
+    t.string   "description",        limit: 255,             null: false
+    t.integer  "games_awards_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "awards", ["name"], name: "index_awards_on_name", unique: true, using: :btree
 
   create_table "communities", force: :cascade do |t|
-    t.string   "name",                    limit: 255,              null: false
-    t.string   "description",             limit: 255, default: "", null: false
-    t.integer  "games_communities_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.string   "name",                    limit: 255,             null: false
+    t.string   "description",             limit: 255,             null: false
+    t.integer  "games_communities_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "communities", ["name"], name: "index_communities_on_name", unique: true, using: :btree
@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(version: 20160709192648) do
     t.integer  "games_genres_count",                limit: 4,     default: 0, null: false
     t.integer  "games_styles_count",                limit: 4,     default: 0, null: false
     t.integer  "games_communities_count",           limit: 4,     default: 0, null: false
-    t.integer  "games_subgenres_count",             limit: 4,     default: 0, null: false
     t.integer  "games_awards_count",                limit: 4,     default: 0, null: false
     t.text     "old_raw_mediawiki_data",            limit: 65535
     t.boolean  "self_published"
@@ -231,13 +230,6 @@ ActiveRecord::Schema.define(version: 20160709192648) do
 
   add_index "games_styles", ["game_id", "style_id"], name: "index_games_styles_on_game_id_and_style_id", unique: true, using: :btree
 
-  create_table "games_subgenres", id: false, force: :cascade do |t|
-    t.integer "game_id",     limit: 4, null: false
-    t.integer "subgenre_id", limit: 4, null: false
-  end
-
-  add_index "games_subgenres", ["game_id", "subgenre_id"], name: "index_games_subgenres_on_game_id_and_subgenre_id", unique: true, using: :btree
-
   create_table "games_themes", id: false, force: :cascade do |t|
     t.integer "game_id",  limit: 4, null: false
     t.integer "theme_id", limit: 4, null: false
@@ -322,31 +314,21 @@ ActiveRecord::Schema.define(version: 20160709192648) do
   add_index "series", ["name"], name: "index_series_on_name", unique: true, using: :btree
 
   create_table "styles", force: :cascade do |t|
-    t.string   "name",               limit: 255,              null: false
-    t.string   "description",        limit: 255, default: "", null: false
-    t.integer  "games_styles_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.string   "name",               limit: 255,             null: false
+    t.string   "description",        limit: 255,             null: false
+    t.integer  "games_styles_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "styles", ["name"], name: "index_styles_on_name", unique: true, using: :btree
 
-  create_table "subgenres", force: :cascade do |t|
-    t.string   "name",                  limit: 255,              null: false
-    t.string   "description",           limit: 255, default: "", null: false
-    t.integer  "games_subgenres_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-  end
-
-  add_index "subgenres", ["name"], name: "index_subgenres_on_name", unique: true, using: :btree
-
   create_table "themes", force: :cascade do |t|
-    t.string   "name",               limit: 255,              null: false
-    t.string   "description",        limit: 255, default: "", null: false
-    t.integer  "games_themes_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.string   "name",               limit: 255,             null: false
+    t.string   "description",        limit: 255,             null: false
+    t.integer  "games_themes_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "themes", ["name"], name: "index_themes_on_name", unique: true, using: :btree
