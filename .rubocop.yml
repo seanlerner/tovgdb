@@ -77,6 +77,11 @@ Rails/FindEach:
 Rails/OutputSafety:
   Enabled: false
 
+Rails/Output:
+  Enabled: true
+  Exclude:
+    - '/**/lib/tasks/move_subgenre_to_genre.rb'
+
 RSpec/DescribeClass:
   Enabled: true
   Exclude:
@@ -108,6 +113,9 @@ Style/FileName:
     - '/**/Guardfile.rb'
     - 'Capfile'
     - 'Gemfile'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 Style/SingleLineBlockParams:
   Enabled: true
