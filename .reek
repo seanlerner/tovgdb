@@ -48,7 +48,6 @@ FeatureEnvy:
     - CreateGamesDistributionChannels#change
     - CreateGamesGenres#change
     - CreateGamesStyles#change
-    - CreateGamesSubgenres#change
     - CreateGenres#change
     - CreateLinks#change
     - CreateLinkTypes#change
@@ -57,7 +56,6 @@ FeatureEnvy:
     - CreatePlatforms#change
     - CreateSeries#change
     - CreateStyles#change
-    - CreateSubgenres#change
     - CreateThemes#change
     - CreateVideos#change
     - CreateWhereToGetsForGames#change
@@ -122,7 +120,6 @@ UncommunicativeVariableName:
   - CreateGamesDistributionChannels#change
   - CreateGamesGenres#change
   - CreateGamesStyles#change
-  - CreateGamesSubgenres#change
   - CreateGenres#change
   - CreateLinks#change
   - CreateLinkTypes#change
@@ -131,7 +128,6 @@ UncommunicativeVariableName:
   - CreatePlatforms#change
   - CreateSeries#change
   - CreateStyles#change
-  - CreateSubgenres#change
   - CreateThemes#change
   - CreateVideos#change
   - CreateWhereToGetsForGames#change

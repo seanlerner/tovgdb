@@ -22,15 +22,15 @@ describe Game do
 
   # Class Methods
   it 'returns valid counts column' do
-    expect(described_class.games_tags_count_column(Subgenre)).to eq('games_subgenres_count')
+    expect(described_class.games_tags_count_column(Genre)).to eq('games_genres_count')
   end
 
   # Instance Methods
   it 'returns count for a tag' do
     game = create(:game)
-    subgenre = create(:subgenre)
-    create(:games_subgenre, game: game, subgenre: subgenre)
-    expect(game.games_tags_count(Subgenre)).to eq 1
+    genre = create(:genre)
+    create(:games_genre, game: game, genre: genre)
+    expect(game.games_tags_count(Genre)).to eq 1
   end
 
   it 'knows when it was released if intial release date set' do

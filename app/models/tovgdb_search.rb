@@ -41,7 +41,7 @@ class TovgdbSearch
   end
 
   def populate_games_from_tag_classes
-    [Genre, Subgenre, Style, Theme, Platform, Engine, Community, Award].each do |tag_class|
+    [Genre, Style, Theme, Platform, Engine, Community, Award].each do |tag_class|
       tag_symbol = tag_class.symbol_pluralized
       if @params[tag_symbol]
         tag_ids = @params[tag_symbol][:ids].reject(&:empty?)

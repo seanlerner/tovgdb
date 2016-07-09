@@ -5,9 +5,9 @@ class Game < ActiveRecord::Base
   include GameModelHelpers::Description, GameModelHelpers::NumberOfPlayers
 
   # Constants
-  MANY_TAGS = [Genre, Style, Community, Subgenre, Award, Theme].freeze
+  MANY_TAGS = [Genre, Style, Community, Award, Theme].freeze
   TAGS = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
-  LISTED_UNDER_TAGS = [Theme, Style, Subgenre, Community, Award].freeze
+  LISTED_UNDER_TAGS = [Theme, Style, Community, Award].freeze
 
   # Helper Methods
   presence_with_question_mark [:number_of_players_for_display, :pricing_models_for_display, :developers, :publishers, :platforms, :game_images, :creators,
