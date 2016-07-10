@@ -44,6 +44,7 @@ Metrics/LineLength:
   Exclude:
     - '/**/application_helper.rb'
     - '/**/description.rb'
+    - '/**/game_model_helpers_spec.rb'
     - '/**/20151207173441_devise_create_admin_users.rb'
     - '/**/tovgdb.rake'
 

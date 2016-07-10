@@ -2,15 +2,17 @@ module GameModelHelpers
   module Description
     include ActionView::Helpers::UrlHelper
 
-    def remove_last_word(string)
-      string.split(' ')[0...-1].join(' ')
-    end
-
     def shortened_description
       return short_description if short_description?
       max_description_length = 200
       return long_description if long_description.size <= max_description_length
       return shorten_and_link_long_description(max_description_length: max_description_length) if long_description.size > max_description_length
+    end
+
+    private
+
+    def remove_last_word(string)
+      string.split(' ')[0...-1].join(' ')
     end
 
     def shorten_and_link_long_description(max_description_length:)

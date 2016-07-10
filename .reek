@@ -92,6 +92,7 @@ UtilityFunction:
     - 'ApplicationHelper#number_of_players_formatted'
     - 'ApplicationHelper#properly_linked_address'
     - 'ApplicationHelper#video_embed_code'
+    - 'GameModelHelpers::Description#remove_last_word'
     - 'GamesHelper#jan_1?'
     - 'SharedMethods#remove_last_word'
     - 'TovgdbSearch'
