@@ -257,16 +257,6 @@ a.series:hover {
 a.style:hover {
   background: #fdb722; }
 
-.subgenre {
-  background: #f1735d;
-  font-size: 14px;
-  padding: 15px;
-  text-align: center;
-  text-transform: uppercase; }
-
-a.subgenre:hover {
-  background: #ef5f46; }
-
 .theme {
   background: #78c8b5;
   font-size: 14px;
@@ -425,17 +415,17 @@ a.theme:hover {
   padding-top: 10px; }
 
 .search-form h1 {
-  text-align: center;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  text-align: center; }
 .search-form .keywords {
   background: #82d0da;
   border: 0;
   color: #043c55;
   font-size: 20px;
+  height: 50px;
   line-height: 1;
   margin-right: 20px;
   padding: 10px 20px;
-  height: 50px;
   width: calc(85% - 50px); }
 .search-form .keywords::-webkit-input-placeholder {
   color: white;
@@ -454,8 +444,8 @@ a.theme:hover {
     background: #82d0da; }
 .search-form .search-type {
   margin: 30px 0 10px; }
-.search-form .search-type label {
-  margin-right: 20px; }
+  .search-form .search-type label {
+    margin-right: 20px; }
 .search-form .tags label {
   display: block; }
 

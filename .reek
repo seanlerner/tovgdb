@@ -26,7 +26,7 @@ FeatureEnvy:
     - 'GamesHelper#specificity_format_date'
     - 'TovgdbSearch#criteria'
     - 'TovgdbSearch#games_from_tag_class'
-    # remaining Feature Envy belongs to old database migrations
+    # remaining Feature Envy belongs to database migrations
     - AddModesToGames#change
     - AddNewFieldsFromMediawikiToCompanies#change
     - AddNewFieldsFromMediawikiToCreators#change
@@ -48,6 +48,7 @@ FeatureEnvy:
     - CreateGamesDistributionChannels#change
     - CreateGamesGenres#change
     - CreateGamesStyles#change
+    - CreateGamesSubgenres#change
     - CreateGenres#change
     - CreateLinks#change
     - CreateLinkTypes#change
@@ -56,10 +57,12 @@ FeatureEnvy:
     - CreatePlatforms#change
     - CreateSeries#change
     - CreateStyles#change
+    - CreateSubgenres#change
     - CreateThemes#change
     - CreateVideos#change
     - CreateWhereToGetsForGames#change
     - DeviseCreateAdminUsers#change
+    - DropSubGenres#change
     - NewGameAttributes#change
 
 IrresponsibleModule:
@@ -95,7 +98,7 @@ UtilityFunction:
 
 UncommunicativeVariableName:
   exclude:
-  # UncommunicativeVariableName belongs to old database migrations & tovgdb import script
+  # UncommunicativeVariableName belongs to database migrations & tovgdb import script
   - AddModesToGames#change
   - AddNewFieldsFromMediawikiToCompanies#change
   - AddNewFieldsFromMediawikiToCreators#change
@@ -120,6 +123,7 @@ UncommunicativeVariableName:
   - CreateGamesDistributionChannels#change
   - CreateGamesGenres#change
   - CreateGamesStyles#change
+  - CreateGamesSubgenres#change
   - CreateGenres#change
   - CreateLinks#change
   - CreateLinkTypes#change
@@ -128,9 +132,11 @@ UncommunicativeVariableName:
   - CreatePlatforms#change
   - CreateSeries#change
   - CreateStyles#change
+  - CreateSubgenres#change
   - CreateThemes#change
   - CreateVideos#change
   - CreateWhereToGetsForGames#change
+  - DropSubGenres#change
   - DeviseCreateAdminUsers#change
   - NewGameAttributes#change
   - Tovgdb::Application
