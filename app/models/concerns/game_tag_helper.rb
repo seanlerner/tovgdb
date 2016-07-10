@@ -1,4 +1,6 @@
 module GameTagHelper
+  extend ActiveSupport::Concern
+
   # Class Methods
   def lowercase
     to_s.downcase
@@ -22,5 +24,12 @@ module GameTagHelper
 
   def symbol_pluralized
     lowercase_pluralized.to_sym
+  end
+
+  # Instance Methods
+  included do
+    def published_games
+      games.published
+    end
   end
 end

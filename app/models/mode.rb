@@ -1,6 +1,7 @@
 class Mode
   include ActiveModel::Model
   extend ActiveModel::Callbacks
+  include GameTagHelper
   extend GameTagHelper
 
   # Class Instance Variables
