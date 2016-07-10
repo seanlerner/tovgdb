@@ -1,7 +1,10 @@
 module GameModelHelpers
   module Description
     include ActionView::Helpers::UrlHelper
-    include SharedMethods
+
+    def remove_last_word(string)
+      string.split(' ')[0...-1].join(' ')
+    end
 
     def shortened_description
       return short_description if short_description?
