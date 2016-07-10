@@ -2,9 +2,13 @@ require_relative 'tovgdb_spec_helper.rb'
 
 FactoryGirl.define do
   factory :admin_user do
-    email 'test@example.com'
+    email 'superadmin@example.com'
     password 'password'
     role 'Super Admin'
+    trait :clerk do
+      email 'clerk@example.com'
+      role 'Clerk'
+    end
   end
 
   sequence :name do |sequence_number|

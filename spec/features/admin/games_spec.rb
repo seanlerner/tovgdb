@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe Game do
   admin_test_setup :game
 
@@ -164,5 +166,16 @@ describe Game do
     fill_in 'Name', with: 'New Game'
     click_button 'Create Game'
     expect(page).to have_content 'Please select Local Play, Online Play or both.'
+  end
+
+  it 'shows published field for super_admin' do
+    visit '/admin/games/new'
+    expect(page.body).to have_css('input#game_published')
+  end
+
+  it 'does not show published field for clerk' do
+    login_as create(:admin_user, :clerk)
+    visit '/admin/games/new'
+    expect(page.body).not_to have_css('input#game_published')
   end
 end
