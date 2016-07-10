@@ -10,4 +10,9 @@ class GameTag < ActiveRecord::Base
   # Validations
   validates :name, presence: { message: "Please enter the name of this #{name}." }
   validates :name, uniqueness: { message: "There is already a #{name.downcase} with this name." }
+
+  # Instance Methods
+  def published_games
+    games.published
+  end
 end

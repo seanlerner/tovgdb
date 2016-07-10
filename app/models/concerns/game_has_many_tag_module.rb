@@ -12,10 +12,5 @@ module GameHasManyTagModule
 
     # Scopes
     scope :non_zero_count, -> { where("#{game_join_model}_count > 0") }
-
-    # Instance Methods
-    def published_games
-      games.published
-    end
   end
 end
