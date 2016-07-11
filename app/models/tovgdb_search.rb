@@ -54,7 +54,7 @@ class TovgdbSearch
     tag_ids.each do |tag_id|
       tag = tag_class.find(tag_id)
       @criteria << criteria = { category: tag_class.symbol_pluralized, criteria: tag.name }
-      tag.games.each do |game|
+      tag.published_games.each do |game|
         game_data = { game: game, criteria: criteria }
         add_game_to_results(game_data)
       end
