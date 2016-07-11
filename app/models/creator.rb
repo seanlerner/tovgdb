@@ -9,9 +9,10 @@ class Creator < ActiveRecord::Base
   # Associations
   has_many :games_creators, dependent: :destroy
   has_many :games, through: :games_creators
-  has_attached_file :logo, styles: { thumb: '200>x999', medium: '300x300>' }
+  has_many :published_games, -> { published }, source: :game, through: :games_creators
   has_many :links, as: :object_has_link
   has_many :link_types, through: :links
+  has_attached_file :logo, styles: { thumb: '200>x999', medium: '300x300>' }
 
   accepts_nested_attributes_for :links, allow_destroy: true
 
