@@ -20,10 +20,13 @@ class Game < ActiveRecord::Base
   has_many :distribution_channels, through: :games_distribution_channels
   has_many :games_creators, dependent: :destroy
   has_many :creators, through: :games_creators
+  has_many :published_creators, -> { published }, source: :creator, through: :games_creators
   has_many :creator_developers, -> { developers }, class_name: 'GamesCreator'
   has_many :developers, source: :creator, through: :creator_developers
+  has_many :published_developers, -> { published }, source: :creator, through: :creator_developers
   has_many :creator_publishers, -> { publishers }, class_name: 'GamesCreator'
   has_many :publishers, source: :creator, through: :creator_publishers
+  has_many :published_publishers, -> { published }, source: :creator, through: :creator_publishers
   has_many :game_images, foreign_key: 'game_id', dependent: :destroy
   has_many :videos, dependent: :destroy
   has_many :games_platforms, dependent: :destroy

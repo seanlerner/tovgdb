@@ -1,7 +1,7 @@
 .row.game-heading
   .col-md-3
   .col-md-6
-    %h2= join_creators_with_ampersand(creators_to_join: @game.games_creators.developers).html_safe
+    %h2= join_creators_with_ampersand(creators_to_join: @game.published_developers).html_safe
     %h1= @game.name
     %p= @game.long_description
   .col-md-3
@@ -15,11 +15,11 @@
         %h3 Release Date
         %p= specificity_format_date @game.released_on
 
-      - if @game.developers == @game.publishers
-        = render 'creators', heading: %w(Developer Publisher), creators: @game.creators
+      - if @game.published_developers == @game.published_publishers
+        = render 'creators', heading: %w(Developer Publisher), creators: @game.published_creators
       - else
-        = render 'creators', heading: 'Developer', creators: @game.developers
-        = render 'creators', heading: 'Publisher', creators: @game.publishers
+        = render 'creators', heading: 'Developer', creators: @game.published_developers
+        = render 'creators', heading: 'Publisher', creators: @game.published_publishers
 
       - if @game.platforms?
         %h3= 'Platform'.pluralize @game.platforms.count

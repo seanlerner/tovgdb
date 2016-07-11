@@ -2,7 +2,7 @@ module GamesHelper
   def join_creators_with_ampersand(creators_to_join:)
     creators = []
     creators_to_join.each do |creator|
-      creators << (link_to creator.name, creator_path(creator.creator))
+      creators << (link_to creator.name, creator_path(creator))
     end
     creators.join(' &amp; ')
   end
