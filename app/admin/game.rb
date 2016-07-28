@@ -8,7 +8,7 @@ ActiveAdmin.register Game do
     column 'Name', sortable: :name do |game|
       link_to game.name, admin_game_path(game)
     end
-    column 'Published', sortable: :published
+    column :published
     column :series, sortable: 'series.name'
     column 'Developers' do |game|
       game.games_creators.developers.map { |developer| developer.creator.name }.join('<br />').html_safe
