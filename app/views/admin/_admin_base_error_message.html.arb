@@ -1,7 +1,7 @@
 if f.object.errors.present?
   text_node %{
     <ul class='errors'>
-      <li>Warning! Could not save #{f.object.class.name}. Please correct and try again.</li>
+      <li>Warning! Could not save #{f.object.class.name}. Please correct and try again:</li>
       <li>
         <ul> }.html_safe
           f.object.errors.full_messages.each do |message|

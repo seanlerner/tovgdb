@@ -11,7 +11,7 @@ ActiveAdmin.register Game do
     column :published
     column :series, sortable: 'series.name'
     column 'Developers' do |game|
-      game.games_creators.developers.map { |developer| developer.creator.name }.join('<br />').html_safe
+      game.games_creators.developers.map { |developer| "start->#{developer.creator.name}<-end" }.join('<br />').html_safe
     end
     column 'Publishers' do |game|
       game.games_creators.publishers.map { |publisher| publisher.creator.name }.join('<br />').html_safe

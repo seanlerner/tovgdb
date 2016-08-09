@@ -15,7 +15,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # admin
 gem 'devise'
-gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git', branch: 'revert-4426-4424-fix-new-with-cast'
+# gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git', branch: 'master'
+# gem 'activeadmin', github: 'activeadmin'
 gem 'cancancan', '~> 1.15'
 
 # app specific
@@ -58,7 +60,7 @@ group :development do
   gem 'rails-footnotes'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
+  # gem 'meta_request'
 
   # better code
   gem 'rubocop', '= 0.41.1'
@@ -99,7 +101,7 @@ end
 group :test do
   gem 'rspec', '=3.4.0'
   gem 'rspec-rails', '=3.4.2'
-  gem 'rspec-instafail'
+  gem 'rspec-instafail', '0.5.0'
   gem 'factory_girl_rails'
   gem 'rack-test'
   gem 'capybara'
