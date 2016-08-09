@@ -4,7 +4,7 @@ class GamesDistributionChannel < ActiveRecord::Base
   belongs_to :distribution_channel, counter_cache: true
 
   # Validations
-  validates :game, presence: true
+  # validates :game, presence: true
   validates :distribution_channel, presence: { message: 'Please select a distribution channel.' }
 
   # Delegations

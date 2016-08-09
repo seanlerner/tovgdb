@@ -11,7 +11,7 @@ ActiveAdmin.register Game do
     column :published
     column :series, sortable: 'series.name'
     column 'Developers' do |game|
-      game.games_creators.developers.map { |developer| "start->#{developer.creator.name}<-end" }.join('<br />').html_safe
+      game.games_creators.developers.map { |developer| developer.creator.name }.join('<br />').html_safe
     end
     column 'Publishers' do |game|
       game.games_creators.publishers.map { |publisher| publisher.creator.name }.join('<br />').html_safe
@@ -62,6 +62,7 @@ ActiveAdmin.register Game do
             text_node '<br>'.html_safe
           end
         end
+        text_node ''
       end
       row :publishers do
         if game.publishers?
@@ -70,6 +71,7 @@ ActiveAdmin.register Game do
             text_node '<br>'.html_safe
           end
         end
+        text_node ''
       end
       [:series, :engine, :published_on, :initial_release_on,
        :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
@@ -85,6 +87,7 @@ ActiveAdmin.register Game do
             text_node '<br>'.html_safe
           end
         end
+        text_node ''
       end
       row :old_raw_mediawiki_data do
         "<pre>#{game.old_raw_mediawiki_data}</pre>".html_safe
