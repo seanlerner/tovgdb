@@ -4,7 +4,7 @@ class GamesPlatform < ActiveRecord::Base
   belongs_to :platform, counter_cache: true
 
   # Validations
-  # validates :game, presence: true
+  validates :game, presence: true
   validates :platform, presence: { message: 'Please select a platform.' }
 
   # Delegations

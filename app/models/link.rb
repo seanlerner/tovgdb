@@ -9,7 +9,7 @@ class Link < ActiveRecord::Base
 
   # Validations
   validates :link_type, presence: { message: 'Please select link type.' }
-  validates :object_has_link, presence: true
+  # validates :object_has_link, presence: true
 
   # Delegations
   delegate :name, to: :link_type

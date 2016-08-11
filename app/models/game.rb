@@ -16,9 +16,9 @@ class Game < ActiveRecord::Base
   # Associations
   has_many :links, as: :object_has_link
   has_many :link_types, through: :links
-  has_many :games_distribution_channels, dependent: :destroy
+  has_many :games_distribution_channels, dependent: :destroy, inverse_of: :game
   has_many :distribution_channels, through: :games_distribution_channels
-  has_many :games_creators, dependent: :destroy
+  has_many :games_creators, dependent: :destroy, inverse_of: :game
   has_many :creators, through: :games_creators
   has_many :published_creators, -> { published }, source: :creator, through: :games_creators
   has_many :creator_developers, -> { developers }, class_name: 'GamesCreator'
@@ -29,7 +29,7 @@ class Game < ActiveRecord::Base
   has_many :published_publishers, -> { published }, source: :creator, through: :creator_publishers
   has_many :game_images, foreign_key: 'game_id', dependent: :destroy
   has_many :videos, dependent: :destroy
-  has_many :games_platforms, dependent: :destroy
+  has_many :games_platforms, dependent: :destroy, inverse_of: :game
   has_many :platforms, through: :games_platforms
 
   MANY_TAGS.each do |tag|

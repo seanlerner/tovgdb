@@ -62,7 +62,7 @@ ActiveAdmin.register Game do
             text_node '<br>'.html_safe
           end
         end
-        text_node ''
+        nil
       end
       row :publishers do
         if game.publishers?
@@ -71,7 +71,7 @@ ActiveAdmin.register Game do
             text_node '<br>'.html_safe
           end
         end
-        text_node ''
+        nil
       end
       [:series, :engine, :published_on, :initial_release_on,
        :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
@@ -87,7 +87,7 @@ ActiveAdmin.register Game do
             text_node '<br>'.html_safe
           end
         end
-        text_node ''
+        nil
       end
       row :old_raw_mediawiki_data do
         "<pre>#{game.old_raw_mediawiki_data}</pre>".html_safe

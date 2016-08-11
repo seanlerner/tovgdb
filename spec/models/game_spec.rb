@@ -106,4 +106,40 @@ describe Game do
     expect(game.most_common_image_aspect_ratio).to eq common_image.image.aspect_ratio
     expect(game.most_common_image_aspect_ratio).not_to eq uncommon_image.image.aspect_ratio
   end
+
+  it 'can be created with a platform association' do
+    game = build(:game)
+    platform = create(:platform)
+    game_platform = game.games_platforms.build(platform: platform)
+    game.save
+    expect(game.persisted?).to eq true
+    expect(game_platform.persisted?).to eq true
+  end
+
+  it 'can be created with a creator association' do
+    game = build(:game)
+    creator = create(:creator)
+    game_creator = game.games_creators.build(creator: creator, developer: true)
+    game.save
+    expect(game.persisted?).to eq true
+    expect(game_creator.persisted?).to eq true
+  end
+
+  it 'can be created with a distribution channel association' do
+    game = build(:game)
+    distribution_channel = create(:distribution_channel)
+    game_distribution_channel = game.games_distribution_channels.build(distribution_channel: distribution_channel, uri: 'http://www.test.com')
+    game.save
+    expect(game.persisted?).to eq true
+    expect(game_distribution_channel.persisted?).to eq true
+  end
+
+  it 'can be created with a link association' do
+    game = build(:game)
+    link_type = create(:link_type)
+    game_link = game.links.build(link_type: link_type, uri: 'http://www.test.com', description_override: '')
+    game.save
+    expect(game.persisted?).to eq true
+    expect(link_type.persisted?).to eq true
+  end
 end
