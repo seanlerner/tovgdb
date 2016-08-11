@@ -4,10 +4,21 @@ class Game < ActiveRecord::Base
   include Elasticsearch::Model
   include GameModelHelpers::Description, GameModelHelpers::NumberOfPlayers
 
+  after_initialize :set_default_publication_status
+
   # Constants
   MANY_TAGS = [Genre, Style, Community, Award, Theme].freeze
   TAGS = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
   LISTED_UNDER_TAGS = [Theme, Style, Community, Award].freeze
+  PUBLICATION_STATUSES = {
+    ready_for_processing: { description: 'Has not been picked up by a clerk' },
+    processing:           { description: 'Clerk is currently working on the record' },
+    processed_incomplete: { description: 'Clerk has submitted an incomplete record for publishing' },
+    processed_complete:   { description: 'Clerk has submitted a complete record for publishing' },
+    published_incomplete: { description: 'Admin has approved the incomplete record' },
+    published_complete:   { description: 'Admin has approved the complete record' },
+    undefined:            { description: 'Publication status needs to be set' }
+  }.freeze
 
   # Helper Methods
   presence_with_question_mark [:number_of_players_for_display, :pricing_models_for_display, :developers, :publishers, :platforms, :game_images, :creators,
@@ -61,6 +72,7 @@ class Game < ActiveRecord::Base
   validates :name, uniqueness: { message: 'There is already a game with this name.' }
   validates :local_play, presence: { unless: :online_play, message: 'Please select Local Play, Online Play or both.' }
   validates :online_play, presence: { unless: :local_play, message: 'Please select Local Play, Online Play or both.' }
+  validates :publication_status, presence: true
   validate :competitive_or_coop_play_for_multiplayer
 
   def competitive_or_coop_play_for_multiplayer
@@ -144,5 +156,11 @@ class Game < ActiveRecord::Base
       indexes :name, type: 'string', analyzer: 'partial_words', search_analyzer: 'standard'
       indexes :long_description, type: 'string', analyzer: 'partial_words', search_analyzer: 'standard'
     end
+  end
+
+  protected
+
+  def set_default_publication_status
+    self.publication_status = 'ready_for_processing'
   end
 end

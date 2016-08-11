@@ -1,0 +1,24 @@
+Game::PUBLICATION_STATUSES.slice(*publication_statuses).each do |publication_status, publication_status_details|
+  h2 "Games #{publication_status.to_s.titleize}:"
+  h3 "(#{publication_status_details[:description]})"
+  table do
+    thead do
+      tr do
+        th 'Name'
+        th 'Published'
+        th
+      end
+    end
+    tbody do
+      Game.where(publication_status: publication_status).each do |game|
+        tr do
+          td link_to game.name, admin_game_path(game)
+          td game.published
+          td link_to 'Edit', edit_admin_game_path(game)
+        end
+      end
+      nil
+    end
+  end
+  hr
+end

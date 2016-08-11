@@ -6,7 +6,6 @@ ActiveAdmin.setup do |config|
   config.on_unauthorized_access = :access_denied
   config.current_user_method = :current_admin_user
   config.logout_link_path = :destroy_admin_user_session_path
-  config.root_to = 'games#index'
   config.comments_menu = false
   config.batch_actions = false
   config.localize_format = :long
