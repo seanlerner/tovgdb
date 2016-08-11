@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   include Elasticsearch::Model
   include GameModelHelpers::Description, GameModelHelpers::NumberOfPlayers
 
-  after_initialize :set_default_publication_status
+  # after_initialize :set_default_publication_status
 
   # Constants
   MANY_TAGS = [Genre, Style, Community, Award, Theme].freeze
