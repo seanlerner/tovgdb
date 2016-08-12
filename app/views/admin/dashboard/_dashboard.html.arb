@@ -1,4 +1,4 @@
-Game::PUBLICATION_STATUSES.slice(*publication_statuses).each do |publication_status, publication_status_details|
+Game::PUBLICATION_STATUSES.each do |publication_status, publication_status_details|
   h2 "Games #{publication_status.to_s.titleize}:"
   h3 "(#{publication_status_details[:description]})"
   table do
