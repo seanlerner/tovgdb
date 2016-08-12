@@ -184,7 +184,8 @@ ActiveAdmin.register Game do
       f.input :alternate_names
       f.input :series, collection: Series.all
       f.input :engine, collection: Engine.all
-      f.input :initial_release_on, start_year: 1950, end_year: Time.now.year,
+      f.input :initial_release_on,
+              start_year: 1950, end_year: Time.zone.now.year,
               hint: 'Date game was released to the public. Set to January 1 to display only the year on the public site.'
       [:minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
        :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
@@ -256,7 +257,7 @@ ActiveAdmin.register Game do
 
     f.inputs 'Metadata' do
       f.input :sources
-      f.input :published_on, hint: 'Public date game was added to the database.', default: Time.now
+      f.input :published_on, hint: 'Public date game was added to the database.', default: Time.zone.now
       f.input :publication_status, collection: Game::PUBLICATION_STATUSES, include_blank: false, default: 'undefined'
       f.input :published if current_admin_user.role == 'Super Admin'
     end

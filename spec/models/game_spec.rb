@@ -140,6 +140,6 @@ describe Game do
     game_link = game.links.build(link_type: link_type, uri: 'http://www.test.com', description_override: '')
     game.save
     expect(game.persisted?).to eq true
-    expect(link_type.persisted?).to eq true
+    expect(game_link.persisted?).to eq true
   end
 end

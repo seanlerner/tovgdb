@@ -55,7 +55,7 @@ module AdminGameTag
       end
 
       game_tag_form.inputs tag_games_sentence || "Tag games with this #{resource_name.downcase}" do
-        game_tag_form.input :games, as: :check_boxes
+        game_tag_form.input :games, as: :check_boxes, collection: Game.order(:name)
       end
 
       game_tag_form.actions
