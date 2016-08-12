@@ -10,6 +10,7 @@ ActiveAdmin.register Game do
     end
     column :publication_status
     column :published
+    actions
     column :series, sortable: 'series.name'
     column 'Developers' do |game|
       game.games_creators.developers.map { |developer| developer.creator.name }.join('<br />').html_safe
@@ -37,7 +38,6 @@ ActiveAdmin.register Game do
     end
     column :digital_distribution
     column :retail_distribution
-    actions
   end
 
   controller do
@@ -55,8 +55,6 @@ ActiveAdmin.register Game do
     attributes_table do
       row :name
       row :alternate_names
-      row :publication_status
-      row :published
       row :developers do
         if game.developers?
           game.games_creators.developers.each do |developer|
@@ -75,10 +73,10 @@ ActiveAdmin.register Game do
         end
         nil
       end
-      [:series, :engine, :published_on, :initial_release_on,
+      [:series, :engine, :initial_release_on,
        :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
        :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
-       :short_description, :long_description, :sources, :digital_distribution, :retail_distribution].each do |game_attribute|
+       :short_description, :long_description, :digital_distribution, :retail_distribution].each do |game_attribute|
         row game_attribute
       end
       row :platforms do
@@ -148,6 +146,13 @@ ActiveAdmin.register Game do
       end
     end
 
+    attributes_table do
+      row :published
+      row :publication_status
+      row :published_on
+      row :sources
+    end
+
     active_admin_comments
   end
 
@@ -177,16 +182,13 @@ ActiveAdmin.register Game do
     f.inputs 'Game Details' do
       f.input :name
       f.input :alternate_names
-      f.input :publication_status, collection: Game::PUBLICATION_STATUSES, include_blank: false, default: 'undefined'
-      f.input :published if current_admin_user.role == 'Super Admin'
       f.input :series, collection: Series.all
       f.input :engine, collection: Engine.all
-      f.input :published_on, hint: 'Public date game was added to the database.'
       f.input :initial_release_on, start_year: 1950, end_year: Time.now.year,
               hint: 'Date game was released to the public. Set to January 1 to display only the year on the public site.'
       [:minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
        :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
-       :short_description, :long_description, :sources, :digital_distribution, :retail_distribution].each do |game_attribute|
+       :short_description, :long_description, :digital_distribution, :retail_distribution].each do |game_attribute|
         f.input game_attribute
       end
     end
@@ -250,6 +252,13 @@ ActiveAdmin.register Game do
         video.input :video_type, collection: Video::VIDEO_TYPES
         video.input :code
       end
+    end
+
+    f.inputs 'Metadata' do
+      f.input :sources
+      f.input :published_on, hint: 'Public date game was added to the database.'
+      f.input :publication_status, collection: Game::PUBLICATION_STATUSES, include_blank: false, default: 'undefined'
+      f.input :published if current_admin_user.role == 'Super Admin'
     end
 
     f.actions

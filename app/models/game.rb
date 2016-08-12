@@ -11,13 +11,13 @@ class Game < ActiveRecord::Base
   TAGS = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
   LISTED_UNDER_TAGS = [Theme, Style, Community, Award].freeze
   PUBLICATION_STATUSES = {
-    ready_for_processing: { description: 'Has not been picked up by a clerk' },
-    processing:           { description: 'Clerk is currently working on the record' },
-    processed_incomplete: { description: 'Clerk has submitted an incomplete record for publishing' },
-    processed_complete:   { description: 'Clerk has submitted a complete record for publishing' },
-    published_incomplete: { description: 'Admin has approved the incomplete record' },
-    published_complete:   { description: 'Admin has approved the complete record' },
-    undefined:            { description: 'Publication status needs to be set' }
+    ready_for_processing: { after_save_published: false, description: 'Has not been picked up by a clerk' },
+    processing:           { after_save_published: false, description: 'Clerk is currently working on the record' },
+    processed_incomplete: { after_save_published: false, description: 'Clerk has submitted an incomplete record for review' },
+    processed_complete:   { after_save_published: false, description: 'Clerk has submitted a complete record for review' },
+    published_incomplete: { after_save_published: true,  description: 'Admin has approved the incomplete record' },
+    published_complete:   { after_save_published: true,  description: 'Admin has approved the complete record' },
+    undefined:            { after_save_published: false, description: 'Publication status needs to be set' }
   }.freeze
 
   # Helper Methods
