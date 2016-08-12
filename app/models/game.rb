@@ -4,7 +4,16 @@ class Game < ActiveRecord::Base
   include Elasticsearch::Model
   include GameModelHelpers::Description, GameModelHelpers::NumberOfPlayers
 
-  after_initialize :set_default_publication_status
+  after_initialize :set_defaults
+
+  protected
+
+  def set_defaults
+    self.publication_status ||= 'ready_for_processing'
+    self.published_on ||= Time.now
+  end
+
+  public
 
   # Constants
   MANY_TAGS = [Genre, Style, Community, Award, Theme].freeze
@@ -158,9 +167,4 @@ class Game < ActiveRecord::Base
     end
   end
 
-  protected
-
-  def set_default_publication_status
-    self.publication_status ||= 'ready_for_processing'
-  end
 end

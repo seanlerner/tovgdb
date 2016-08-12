@@ -256,7 +256,7 @@ ActiveAdmin.register Game do
 
     f.inputs 'Metadata' do
       f.input :sources
-      f.input :published_on, hint: 'Public date game was added to the database.'
+      f.input :published_on, hint: 'Public date game was added to the database.', default: Time.now
       f.input :publication_status, collection: Game::PUBLICATION_STATUSES, include_blank: false, default: 'undefined'
       f.input :published if current_admin_user.role == 'Super Admin'
     end
