@@ -161,6 +161,6 @@ class Game < ActiveRecord::Base
   protected
 
   def set_default_publication_status
-    self.publication_status = 'ready_for_processing'
+    self.publication_status ||= 'ready_for_processing'
   end
 end
