@@ -10,7 +10,7 @@ class Game < ActiveRecord::Base
 
   def set_defaults
     self.publication_status ||= 'ready_for_processing'
-    self.published_on ||= Time.now
+    self.published_on ||= Time.zone.now
   end
 
   public
@@ -166,5 +166,4 @@ class Game < ActiveRecord::Base
       indexes :long_description, type: 'string', analyzer: 'partial_words', search_analyzer: 'standard'
     end
   end
-
 end

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'dotenv-rails'
 
 # core application
-gem 'rails', '4.2.5.2'
+gem 'rails', '>= 4.2'
 gem 'mysql2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
