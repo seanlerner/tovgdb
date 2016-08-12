@@ -81,6 +81,7 @@ ActiveAdmin.register Creator do
               game_ids: [], game_attributes: [:id, :_update, :_create, :_destroy],
               link_ids: [], links_attributes: [:id, :creator_id, :link_type_id, :uri, :description_override, :_destroy]]
     params << :published if current_admin_user.role == 'Super Admin'
+    params
   end
 
   form html: { multipart: true } do |f|
