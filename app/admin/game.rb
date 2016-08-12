@@ -146,11 +146,13 @@ ActiveAdmin.register Game do
       end
     end
 
-    attributes_table do
-      row :published
-      row :publication_status
-      row :published_on
-      row :sources
+    panel 'Metadata' do
+      attributes_table_for game do
+        row :published
+        row :publication_status
+        row :published_on
+        row :sources
+      end
     end
 
     active_admin_comments
