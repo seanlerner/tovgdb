@@ -347,6 +347,6 @@ ActiveRecord::Schema.define(version: 20160811141955) do
   add_index "videos", ["game_id"], name: "index_videos_on_game_id", using: :btree
 
   add_foreign_key "game_images", "games"
-  add_foreign_key "games_creators", "creators", name: "fk_rails_sean_custom"
+  add_foreign_key "games_creators", "creators"
   add_foreign_key "games_creators", "games"
 end

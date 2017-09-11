@@ -11,13 +11,14 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+# gem 'sdoc', '~> 0.4.0', group: :doc
+# gem 'json', '= 2.1.0'
 
 # admin
 gem 'devise'
-gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git', branch: 'revert-4426-4424-fix-new-with-cast'
+# gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git', branch: 'revert-4426-4424-fix-new-with-cast'
 # gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git', branch: 'master'
-# gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'cancancan', '~> 1.15'
 
 # app specific
@@ -36,7 +37,7 @@ gem 'elasticsearch-rails'
 gem 'active_record_union'
 
 # coding tools
-gem 'haml'
+gem 'haml', '4'
 gem 'haml-rails'
 gem 'colorize'
 
@@ -63,8 +64,8 @@ group :development do
   # gem 'meta_request'
 
   # better code
-  gem 'rubocop', '= 0.41.1'
-  gem 'rubocop-rspec', '= 1.5.0'
+  # gem 'rubocop', '= 0.41.1'
+  # gem 'rubocop-rspec', '= 1.5.0'
   gem 'haml_lint', require: false, git: 'https://github.com/brigade/haml-lint'
   gem 'scss_lint', require: false
   gem 'rails_best_practices'

@@ -9,7 +9,7 @@ ActiveAdmin.setup do |config|
   config.comments_menu = false
   config.batch_actions = false
   config.localize_format = :long
-  config.register_stylesheet 'tovgdb_active_admin.css'
+  # config.register_stylesheet 'tovgdb_active_admin.css'
   config.default_per_page = 10_000
   config.filters = false
 
