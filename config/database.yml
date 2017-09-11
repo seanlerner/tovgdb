@@ -1,8 +1,8 @@
 default: &default
   adapter: mysql2
   database: <%= "#{Rails.application.class.parent_name.downcase}_#{Rails.env}" %>
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV['TOVGDB_DATABASE_USER'] %>
+  password: <%= ENV['TOVGDB_DATABASE_PASSWORD'] %>
   encoding: utf8
 
 development:
