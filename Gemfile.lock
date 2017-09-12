@@ -28,9 +28,9 @@ GIT
 
 GIT
   remote: https://github.com/colszowka/simplecov
-  revision: 207664926948abb2c70346b323f94737c2af7a69
+  revision: fb6785dd14a925915d02744b75b99e5769ae4e8e
   specs:
-    simplecov (0.15.0)
+    simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
@@ -510,6 +510,8 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-rspec (1.5.0)
+      rubocop (>= 0.40.0)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
     ruby_parser (3.10.1)
@@ -646,6 +648,8 @@ DEPENDENCIES
   rspec (= 3.4.0)
   rspec-instafail (= 0.5.0)
   rspec-rails (= 3.4.2)
+  rubocop
+  rubocop-rspec (= 1.5.0)
   sass-rails
   sass-rails-source-maps!
   scss_lint

@@ -65,6 +65,9 @@ FeatureEnvy:
     - DropSubGenres#change
     - NewGameAttributes#change
 
+InstanceVariableAssumption:
+  enabled: false
+
 IrresponsibleModule:
   enabled: false
 
