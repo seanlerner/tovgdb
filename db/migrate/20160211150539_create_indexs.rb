@@ -9,11 +9,11 @@ class CreateIndexs < ActiveRecord::Migration
     add_index :communities, :name, unique: true
     add_index :companies, :name, unique: true
     add_index :companies, :founded_on
-    add_index :links, [:object_has_link_id, :link_type_id]
+    add_index :links, %i[object_has_link_id link_type_id]
     add_index :distribution_channels, :name, unique: true
     add_index :distribution_channels, :category
     add_index :frameworks, :name, unique: true
-    add_index :games_distribution_channels, [:game_id, :distribution_channel_id], \
+    add_index :games_distribution_channels, %i[game_id distribution_channel_id], \
               name: 'index_games_dist_channels_on_game_id_and_dist_channel_id', unique: true
     add_index :games_distribution_channels, :released_on
     add_index :games_platforms, :released_on

@@ -62,7 +62,7 @@ class TovgdbSearch
   end
 
   def populate_games_from_modes
-    [:single_player, :multiplayer, :local_play, :online_play, :coop_play, :competitive_play].each do |mode|
+    %i[single_player multiplayer local_play online_play coop_play competitive_play].each do |mode|
       next unless @params[mode]
       @criteria << criteria = { category: :modes, criteria: Mode.find(mode).name }
       Game.published.includes(:game_images).send(mode).find_each do |game|

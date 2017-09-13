@@ -8,7 +8,7 @@ class CreateMenuItems < ActiveRecord::Migration
       t.timestamps null: false
       t.index :name
       t.index :uri
-      t.index [:menu, :order]
+      t.index %i[menu order]
     end
   end
 end

@@ -113,10 +113,6 @@ RSpec/ExampleLength:
 #   Exclude:
 #     - '/**/creators_spec.rb'
 
-# TODO
-Style/SymbolArray:
-  Enabled: false
-
 Style/ClassAndModuleChildren:
   Enabled: true
   Exclude:

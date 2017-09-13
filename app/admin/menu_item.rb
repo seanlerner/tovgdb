@@ -33,7 +33,7 @@ ActiveAdmin.register MenuItem do
   end
 
   # New / Edit
-  permit_params [:name, :menu, :uri, :order]
+  permit_params %i[name menu uri order]
 
   form do |f|
     render partial: 'admin/admin_base_error_message', locals: { f: f }

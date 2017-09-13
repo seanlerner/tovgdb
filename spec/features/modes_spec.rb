@@ -1,5 +1,5 @@
 describe Mode do
-  MODES = [:single_player, :multiplayer, :local_play, :online_play, :competitive_play, :coop_play].freeze
+  MODES = %i[single_player multiplayer local_play online_play competitive_play coop_play].freeze
 
   it 'views index' do
     visit modes_path

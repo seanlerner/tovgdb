@@ -16,7 +16,7 @@ module AdminGameTag
       column '# of Games', sortable: games_count_column do |tag|
         tag.games.count
       end
-      [:description, :created_at, :updated_at].each { |symbol| column symbol }
+      %i[description created_at updated_at].each { |symbol| column symbol }
       actions
     end
   end

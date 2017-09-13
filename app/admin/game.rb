@@ -19,10 +19,10 @@ ActiveAdmin.register Game do
       game.games_creators.publishers.map { |publisher| publisher.creator.name }.join('<br />').html_safe
     end
     column :engine, sortable: 'engines.name'
-    [:published_on, :initial_release_on,
-     :minimum_number_of_players, :maximum_number_of_players,
-     :local_play, :online_play, :coop_play, :competitive_play,
-     :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available].each do |game_attribute|
+    %i[published_on initial_release_on
+       minimum_number_of_players maximum_number_of_players
+       local_play online_play coop_play competitive_play
+       free freemium free_trial donation ads pay not_available].each do |game_attribute|
       column game_attribute
     end
     column 'Platforms' do |game|
@@ -73,10 +73,10 @@ ActiveAdmin.register Game do
         end
         nil
       end
-      [:series, :engine, :initial_release_on,
-       :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
-       :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
-       :short_description, :long_description, :digital_distribution, :retail_distribution].each do |game_attribute|
+      %i[series engine initial_release_on
+         minimum_number_of_players maximum_number_of_players local_play online_play coop_play competitive_play
+         free freemium free_trial donation ads pay not_available
+         short_description long_description digital_distribution retail_distribution].each do |game_attribute|
         row game_attribute
       end
       row :platforms do
@@ -164,13 +164,13 @@ ActiveAdmin.register Game do
               :digital_distribution, :retail_distribution,
               :minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
               :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available, :publication_status,
-              link_ids: [], links_attributes: [:id, :game_id, :link_type_id, :uri, :description_override, :_destroy],
-              games_creators_ids: [], games_creators_attributes: [:id, :game_id, :creator_id, :developer, :publisher, :_destroy],
-              game_image_ids: [], game_images_attributes: [:id, :game_id, :image, :caption, :order, :_destroy],
-              video_ids: [], videos_attributes: [:id, :game_id, :title, :platform, :code, :video_type, :_update, :_create, :_destroy],
-              games_platforms_ids: [], games_platforms_attributes: [:id, :game_id, :platform_id, :released_on, :_destroy],
+              link_ids: [], links_attributes: %i[id game_id link_type_id uri description_override _destroy],
+              games_creators_ids: [], games_creators_attributes: %i[id game_id creator_id developer publisher _destroy],
+              game_image_ids: [], game_images_attributes: %i[id game_id image caption order _destroy],
+              video_ids: [], videos_attributes: %i[id game_id title platform code video_type _update _create _destroy],
+              games_platforms_ids: [], games_platforms_attributes: %i[id game_id platform_id released_on _destroy],
               games_distribution_channels_ids: [], games_distribution_channels_attributes:
-                [:id, :game_id, :distribution_channel_id, :released_on, :uri, :_destroy]]
+                %i[id game_id distribution_channel_id released_on uri _destroy]]
     params << :published if current_admin_user.role == 'Super Admin'
     Game::MANY_TAGS.each do |tag|
       params.push "#{tag.lowercase}_ids".to_sym => [], "#{tag.lowercase}_attributes".to_sym => [:id, tag, :_update, :_create, :_destroy]
@@ -189,9 +189,9 @@ ActiveAdmin.register Game do
       f.input :initial_release_on,
               start_year: 1950, end_year: Time.zone.now.year,
               hint: 'Date game was released to the public. Set to January 1 to display only the year on the public site.'
-      [:minimum_number_of_players, :maximum_number_of_players, :local_play, :online_play, :coop_play, :competitive_play,
-       :free, :freemium, :free_trial, :donation, :ads, :pay, :not_available,
-       :short_description, :long_description, :digital_distribution, :retail_distribution].each do |game_attribute|
+      %i[minimum_number_of_players maximum_number_of_players local_play online_play coop_play competitive_play
+         free freemium free_trial donation ads pay not_available
+         short_description long_description digital_distribution retail_distribution].each do |game_attribute|
         f.input game_attribute
       end
     end

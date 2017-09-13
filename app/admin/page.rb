@@ -30,7 +30,7 @@ ActiveAdmin.register Page do
   end
 
   # New / Edit
-  permit_params [:title, :slug, :content]
+  permit_params %i[title slug content]
 
   form do |f|
     render partial: 'admin/admin_base_error_message', locals: { f: f }

@@ -9,7 +9,7 @@ class CreateThemes < ActiveRecord::Migration
     create_table :games_themes, id: false do |t|
       t.references :game, null: false
       t.references :theme, null: false
-      t.index [:game_id, :theme_id], unique: true
+      t.index %i[game_id theme_id], unique: true
     end
     add_column :games, :games_themes_count, :integer, default: 0, null: false
   end

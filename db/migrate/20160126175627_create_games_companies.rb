@@ -5,7 +5,7 @@ class CreateGamesCompanies < ActiveRecord::Migration
       t.references  :company, index: true, foreign_key: true
       t.boolean     :developer
       t.boolean     :publisher
-      t.index [:game_id, :company_id], unique: true
+      t.index %i[game_id company_id], unique: true
     end
   end
 end

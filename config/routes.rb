@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # Resources
-  resources :games, only: [:index, :show]
-  resources :creators, only: [:index, :show]
+  resources :games, only: %i[index show]
+  resources :creators, only: %i[index show]
   Game::MANY_TAGS.each do |tag|
-    resources tag.symbol_pluralized, only: [:index, :show]
+    resources tag.symbol_pluralized, only: %i[index show]
   end
-  [:platforms, :series, :engines, :developers, :modes].each do |object|
-    resources object, only: [:index, :show]
+  %i[platforms series engines developers modes].each do |object|
+    resources object, only: %i[index show]
   end
 
   # Search
