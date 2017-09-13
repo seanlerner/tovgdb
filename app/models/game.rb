@@ -30,8 +30,8 @@ class Game < ApplicationRecord
   }.freeze
 
   # Helper Methods
-  presence_with_question_mark [:number_of_players_for_display, :pricing_models_for_display, :developers, :publishers, :platforms, :game_images, :creators,
-                               :games_distribution_channels, :series, :engine, :genres, :links, :released_on, :modes, :multiplayer_modes]
+  presence_with_question_mark %i[number_of_players_for_display pricing_models_for_display developers publishers platforms game_images creators
+                                 games_distribution_channels series engine genres links released_on modes multiplayer_modes]
 
   # Associations
   has_many :links, as: :object_has_link
@@ -85,11 +85,10 @@ class Game < ApplicationRecord
   validate :competitive_or_coop_play_for_multiplayer
 
   def competitive_or_coop_play_for_multiplayer
-    if maximum_number_of_players? && (maximum_number_of_players > 1) && (competitive_play == false) && (coop_play == false)
-      error_message = 'As the maximum number of players is more than 1, please select Competitive Play, Co-op Play or both.'
-      errors.add(:competitive_play, error_message)
-      errors.add(:coop_play, error_message)
-    end
+    return unless maximum_number_of_players? && (maximum_number_of_players > 1) && (competitive_play == false) && (coop_play == false)
+    error_message = 'As the maximum number of players is more than 1, please select Competitive Play, Co-op Play or both.'
+    errors.add(:competitive_play, error_message)
+    errors.add(:coop_play, error_message)
   end
 
   # Instance Methods
@@ -123,7 +122,7 @@ class Game < ApplicationRecord
 
   def pricing_models_for_display
     pricing_models = []
-    %w(free freemium free_trial donation ads pay not_available).each do |pricing_model|
+    %w[free freemium free_trial donation ads pay not_available].each do |pricing_model|
       pricing_models << pricing_model.titleize if send(pricing_model)
     end
     pricing_models
@@ -156,7 +155,7 @@ class Game < ApplicationRecord
         partial_words: {
           type: 'custom',
           tokenizer: 'standard',
-          filter: %w(lowercase partial_words_filter)
+          filter: %w[lowercase partial_words_filter]
         }
       }
     }
