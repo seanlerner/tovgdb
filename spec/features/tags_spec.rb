@@ -24,13 +24,13 @@ GAME_TAGS.flatten.each do |tag_class|
 
     it 'views single with developers' do
       game = create(:game)
-      creator_1 = create(:creator)
-      creator_2 = create(:creator)
-      create(:games_creator, game: game, creator: creator_1, developer: true)
-      create(:games_creator, game: game, creator: creator_2, developer: true)
+      creator_one = create(:creator)
+      creator_two = create(:creator)
+      create(:games_creator, game: game, creator: creator_one, developer: true)
+      create(:games_creator, game: game, creator: creator_two, developer: true)
       create_games_association_and_visit_page_and_check_for_name(tag_class, instance, game)
-      expect(page).to have_content creator_1.name
-      expect(page).to have_content creator_2.name
+      expect(page).to have_content creator_one.name
+      expect(page).to have_content creator_two.name
     end
 
     it 'views single with empty game description' do

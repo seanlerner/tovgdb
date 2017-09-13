@@ -85,6 +85,8 @@ Rails/FindEach:
   Exclude:
     - '/**/app/models/mode.rb'
 
+Rails/DynamicFindBy:
+  Enabled: false
 
 # TODO: enable this and address issues
 Rails/OutputSafety:
@@ -110,6 +112,10 @@ RSpec/ExampleLength:
 #   Enabled: true
 #   Exclude:
 #     - '/**/creators_spec.rb'
+
+# TODO
+Style/SymbolArray:
+  Enabled: false
 
 Style/ClassAndModuleChildren:
   Enabled: true

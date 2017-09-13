@@ -42,7 +42,7 @@ module ActiveAdmin
           captures = /^(?<column>[\w\_\.]+)_(?<order>desc|asc)$/.match(fragment)
           column = captures[:column]
           table = active_admin_config.resource_column_names.include?(column) ? active_admin_config.resource_table_name : nil
-          table_column = (column =~ /\./) ? column : [table, active_admin_config.resource_quoted_column_name(column)].compact.join('.')
+          table_column = column =~ /\./ ? column : [table, active_admin_config.resource_quoted_column_name(column)].compact.join('.')
           orders << "#{table_column} #{captures[:order]}"
         end
         orders.empty? ? chain : chain.reorder(orders.shift).order(orders)

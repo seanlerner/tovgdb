@@ -21,7 +21,7 @@ class TovgdbSearch
 
   def populate_games_from_keywords
     keywords = @params[:keywords]
-    return unless keywords.present?
+    return if keywords.blank?
     @criteria << criteria = { category: :keywords, criteria: keywords }
     games_from_elastic_search = Game.search_for(keywords, @params[:match_type]).sort_by { |elastic_search_result| elastic_search_result.id.to_i }
     return unless games_from_elastic_search
@@ -106,7 +106,7 @@ class TovgdbSearch
   end
 
   def ensure_games_satisfy_all_criteria
-    @games.reject! { |_, game_data| game_data[:criteria] != @criteria }
+    @games.select! { |_, game_data| game_data[:criteria] == @criteria }
   end
 
   def sort_games_by_score
