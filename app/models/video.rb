@@ -1,4 +1,4 @@
-class Video < ActiveRecord::Base
+class Video < ApplicationRecord
   # Constants
   PLATFORMS = %w(YouTube Vimeo).freeze
   VIDEO_TYPES = %w(Trailer Gameplay Demo Other).freeze

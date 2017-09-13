@@ -1,4 +1,4 @@
-class GamesStyle < ActiveRecord::Base
+class GamesStyle < ApplicationRecord
   extend GameHasManyTagJoin
   include GameHasManyTagJoin
 end

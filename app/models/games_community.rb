@@ -1,4 +1,4 @@
-class GamesCommunity < ActiveRecord::Base
+class GamesCommunity < ApplicationRecord
   extend GameHasManyTagJoin
   include GameHasManyTagJoin
 end

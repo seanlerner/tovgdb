@@ -1,4 +1,4 @@
-class Link < ActiveRecord::Base
+class Link < ApplicationRecord
   # Associations
   belongs_to :link_type
   belongs_to :object_has_link, polymorphic: true

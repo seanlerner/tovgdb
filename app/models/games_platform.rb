@@ -1,4 +1,4 @@
-class GamesPlatform < ActiveRecord::Base
+class GamesPlatform < ApplicationRecord
   # Associations
   belongs_to :game, counter_cache: true
   belongs_to :platform, counter_cache: true

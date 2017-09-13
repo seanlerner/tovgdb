@@ -1,4 +1,4 @@
-class MenuItem < ActiveRecord::Base
+class MenuItem < ApplicationRecord
   # Constants
   MENUS = ['Main Nav', 'Footer Nav'].freeze
 

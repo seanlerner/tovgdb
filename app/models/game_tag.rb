@@ -1,4 +1,4 @@
-class GameTag < ActiveRecord::Base
+class GameTag < ApplicationRecord
   extend GameTagHelper
   include GameTagHelper
 

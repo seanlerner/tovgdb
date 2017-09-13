@@ -1,4 +1,4 @@
-class GamesDistributionChannel < ActiveRecord::Base
+class GamesDistributionChannel < ApplicationRecord
   # Associations
   belongs_to :game, counter_cache: true
   belongs_to :distribution_channel, counter_cache: true

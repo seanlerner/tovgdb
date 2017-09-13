@@ -1,4 +1,4 @@
-class GamesCreator < ActiveRecord::Base
+class GamesCreator < ApplicationRecord
   # Associations
   belongs_to :game, counter_cache: true
   belongs_to :creator, counter_cache: true

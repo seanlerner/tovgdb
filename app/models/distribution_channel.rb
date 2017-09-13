@@ -1,4 +1,4 @@
-class DistributionChannel < ActiveRecord::Base
+class DistributionChannel < ApplicationRecord
   # Constants
   CATEGORIES = ['where to get', 'where to play', 'other'].freeze
 

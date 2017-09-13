@@ -1,4 +1,4 @@
-class Creator < ActiveRecord::Base
+class Creator < ApplicationRecord
   # Allow admin to delete logo
   attr_writer :remove_logo
   def remove_logo

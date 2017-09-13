@@ -1,4 +1,4 @@
-class LinkType < ActiveRecord::Base
+class LinkType < ApplicationRecord
   # Constants
   CATEGORIES = ['website', 'email', 'social media', 'other'].freeze
 

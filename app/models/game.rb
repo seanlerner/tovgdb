@@ -1,4 +1,4 @@
-class Game < ActiveRecord::Base
+class Game < ApplicationRecord
   extend ModelHelper
   extend GameModelHelpers::GameSearch
   include Elasticsearch::Model
