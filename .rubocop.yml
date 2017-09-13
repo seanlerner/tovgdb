@@ -12,6 +12,9 @@ AllCops:
 Rails:
   Enabled: true
 
+Bundler/OrderedGems:
+  Enabled: false
+
 Documentation:
   Enabled: false
 
@@ -35,6 +38,11 @@ Metrics/CyclomaticComplexity:
   Enabled: true
   Exclude:
   - '/**/application_helper.rb'
+
+Metrics/BlockLength:
+  Enabled: false
+  # Exclude:
+  #   - 'Gemfile'
 
 Metrics/BlockNesting:
   Enabled: true

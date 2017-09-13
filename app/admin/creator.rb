@@ -65,7 +65,7 @@ ActiveAdmin.register Creator do
           link_to game.name, admin_game_path(game)
         end
         column :roles do |game|
-          game_creator = GamesCreator.find_by_game_id_and_creator_id(game.id, creator.id)
+          game_creator = GamesCreator.find_by(game_id: game.id, creator_id: creator.id)
           game_creator.roles.join(' & ')
         end
       end
@@ -78,8 +78,8 @@ ActiveAdmin.register Creator do
   permit_params do
     params = [:name, :alternate_names, :description,
               :logo, :remove_logo,
-              game_ids: [], game_attributes: [:id, :_update, :_create, :_destroy],
-              link_ids: [], links_attributes: [:id, :creator_id, :link_type_id, :uri, :description_override, :_destroy]]
+              game_ids: [], game_attributes:  %i[id _update _create _destroy],
+              link_ids: [], links_attributes: %i[id creator_id link_type_id uri description_override _destroy]]
     params << :published if current_admin_user.role == 'Super Admin'
     params
   end

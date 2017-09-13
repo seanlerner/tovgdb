@@ -3,7 +3,7 @@ class CreateGamesCommunities < ActiveRecord::Migration
     create_table :games_communities, id: false do |t|
       t.references :game, null: false
       t.references :community, null: false
-      t.index [:game_id, :community_id], unique: true
+      t.index %w[game_id community_id], unique: true
     end
   end
 end

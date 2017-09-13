@@ -3,7 +3,7 @@ class CreateGamesStyles < ActiveRecord::Migration
     create_table :games_styles, id: false do |t|
       t.references :game, null: false
       t.references :style, null: false
-      t.index [:game_id, :style_id], unique: true
+      t.index %i[game_id style_id], unique: true
     end
   end
 end

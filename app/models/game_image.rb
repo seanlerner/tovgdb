@@ -1,4 +1,4 @@
-class GameImage < ActiveRecord::Base
+class GameImage < ApplicationRecord
   # Associations
   belongs_to :game, foreign_key: 'game_id'
   has_attached_file :image, styles: { small: '150x9999>', medium: '267x9999>', large: '320x9999>' }
