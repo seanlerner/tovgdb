@@ -15,6 +15,9 @@ Rails:
 Documentation:
   Enabled: false
 
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+
 Metrics/AbcSize:
   Enabled: true
   Max: 16
@@ -69,11 +72,11 @@ Metrics/PerceivedComplexity:
   Exclude:
     - '/**/application_helper.rb'
 
-
 Rails/FindEach:
   Enabled: true
   Exclude:
     - '/**/app/models/mode.rb'
+
 
 # TODO: enable this and address issues
 Rails/OutputSafety:
@@ -106,8 +109,6 @@ Style/ClassAndModuleChildren:
     - '/**/Guardfile.rb'
     - '/**/Guardfile'
 
-Style/EmptyLinesAroundClassBody:
-  Enabled: true
 
 Style/FileName:
   Enabled: true
