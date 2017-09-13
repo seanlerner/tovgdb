@@ -16,7 +16,7 @@
         %p= specificity_format_date @game.released_on
 
       - if @game.published_developers == @game.published_publishers
-        = render 'creators', heading: %w(Developer Publisher), creators: @game.published_creators
+        = render 'creators', heading: %w[Developer Publisher], creators: @game.published_creators
       - else
         = render 'creators', heading: 'Developer', creators: @game.published_developers
         = render 'creators', heading: 'Publisher', creators: @game.published_publishers

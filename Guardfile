@@ -78,7 +78,7 @@ guard 'livereload' do
     jpeg: :jpeg
   }
 
-  rails_view_exts = %w(erb haml slim)
+  rails_view_exts = %w[erb haml slim]
   compiled_exts = extensions.values.uniq
   watch(%r{public/.+\.(#{compiled_exts * '|'})})
 
@@ -115,7 +115,7 @@ guard :rspec, cmd: 'bundle exec rspec' do
   dsl.watch_spec_files_for(ruby.lib_files)
 
   # Rails files
-  rails = dsl.rails(view_extensions: %w(erb haml slim))
+  rails = dsl.rails(view_extensions: %w[erb haml slim])
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 

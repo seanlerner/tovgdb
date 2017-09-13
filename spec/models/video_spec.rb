@@ -1,13 +1,13 @@
 describe Video do
   # Constants
   it 'has platforms' do
-    %w(YouTube Vimeo).each do |platform|
+    %w[YouTube Vimeo].each do |platform|
       expect(Video::PLATFORMS).to include(platform)
     end
   end
 
   it 'has video types' do
-    %w(Trailer Gameplay Demo Other).each do |video_type|
+    %w[Trailer Gameplay Demo Other].each do |video_type|
       expect(Video::VIDEO_TYPES).to include(video_type)
     end
   end

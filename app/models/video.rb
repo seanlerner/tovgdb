@@ -1,7 +1,7 @@
 class Video < ApplicationRecord
   # Constants
-  PLATFORMS = %w(YouTube Vimeo).freeze
-  VIDEO_TYPES = %w(Trailer Gameplay Demo Other).freeze
+  PLATFORMS = %w[YouTube Vimeo].freeze
+  VIDEO_TYPES = %w[Trailer Gameplay Demo Other].freeze
 
   # Associations
   belongs_to :game
