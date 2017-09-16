@@ -16,9 +16,9 @@ class Game < ApplicationRecord
   public
 
   # Constants
-  MANY_TAGS = [Genre, Style, Community, Award, Theme].freeze
+  MANY_TAGS = [Genre, Style, Community, Theme].freeze
   TAGS = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
-  LISTED_UNDER_TAGS = [Theme, Style, Community, Award].freeze
+  LISTED_UNDER_TAGS = [Theme, Style, Community].freeze
   PUBLICATION_STATUSES = {
     ready_for_processing: { after_save_published: false, description: 'Has not been picked up by a clerk' },
     processing:           { after_save_published: false, description: 'Clerk is currently working on the record' },

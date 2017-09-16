@@ -1,4 +1,4 @@
-GAME_TAGS = [Genre, Award, Style, Community, Theme].freeze
+GAME_TAGS = [Genre, Style, Community, Theme].freeze
 
 def let_and_create(object)
   let(object) { create object }

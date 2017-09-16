@@ -39,17 +39,11 @@
             = check_box_tag 'competitive_play'
             = label_tag 'competitive_play', 'Competitive Play'
 
-
           - [Platform, Genre, Style].each do |game_tag|
             = render 'game_tag', game_tag: game_tag
         .row
           - [Theme, Engine, Community].each do |game_tag|
             = render 'game_tag', game_tag: game_tag
-
-        .row
-          - [Award].each do |game_tag|
-            = render 'game_tag', game_tag: game_tag
-
 
         .row
           .col-md-12

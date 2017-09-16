@@ -177,16 +177,6 @@ h6 {
       .explore-cloud-container .explore-cloud a:hover {
         text-decoration: none; }
 
-.award {
-  background: #f6b5c8;
-  font-size: 14px;
-  padding: 15px;
-  text-align: center;
-  text-transform: uppercase; }
-
-a.award:hover {
-  background: #f39eb7; }
-
 .community {
   background: #82d0da;
   font-size: 14px;

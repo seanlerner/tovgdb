@@ -74,6 +74,7 @@ Metrics/MethodLength:
     - '/**/20160211150539_create_indexs.rb'
     - '/**/20160317155449_no_nil_allowed_for_string_and_text_fields.rb'
     - '/**/20160709210349_drop_sub_genres.rb'
+    - '/**/20170916144037_remove_awards.rb'
 
 Metrics/PerceivedComplexity:
   Enabled: true

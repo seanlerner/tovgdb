@@ -17,7 +17,6 @@ $tan: rgb(251, 241, 227);
 
 // Tag Colors
 $tag-colors: (
-  award: rgb(246, 181, 200),        // Pink
   community: $light-blue,           // Light Blue
   engine: rgb(218, 111, 169),       // Dark-Pink
   genre: rgb(244, 134, 48),         // Orange
@@ -29,5 +28,6 @@ $tag-colors: (
 );
 
 // Unused Colors
+// rgb(246, 181, 200) // Pink
 // rgb(125, 148, 212) // Blue
 // rgb(149, 126, 214) // Purple -- too dark for a tag

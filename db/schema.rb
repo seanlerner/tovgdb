@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811141955) do
+ActiveRecord::Schema.define(version: 20170916144037) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,16 +46,6 @@ ActiveRecord::Schema.define(version: 20160811141955) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "awards", force: :cascade do |t|
-    t.string   "name",               limit: 255,              null: false
-    t.string   "description",        limit: 255, default: "", null: false
-    t.integer  "games_awards_count", limit: 4,   default: 0,  null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-  end
-
-  add_index "awards", ["name"], name: "index_awards_on_name", unique: true, using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.string   "name",                    limit: 255,              null: false
@@ -137,7 +127,6 @@ ActiveRecord::Schema.define(version: 20160811141955) do
     t.integer  "games_genres_count",                limit: 4,     default: 0, null: false
     t.integer  "games_styles_count",                limit: 4,     default: 0, null: false
     t.integer  "games_communities_count",           limit: 4,     default: 0, null: false
-    t.integer  "games_awards_count",                limit: 4,     default: 0, null: false
     t.text     "old_raw_mediawiki_data",            limit: 65535
     t.boolean  "self_published"
     t.boolean  "digital_distribution"
@@ -170,13 +159,6 @@ ActiveRecord::Schema.define(version: 20160811141955) do
   add_index "games", ["name"], name: "index_games_on_name", unique: true, using: :btree
   add_index "games", ["published_on"], name: "index_games_on_published_on", using: :btree
   add_index "games", ["series_id"], name: "index_games_on_series_id", using: :btree
-
-  create_table "games_awards", id: false, force: :cascade do |t|
-    t.integer "game_id",  limit: 4, null: false
-    t.integer "award_id", limit: 4, null: false
-  end
-
-  add_index "games_awards", ["game_id", "award_id"], name: "index_games_awards_on_game_id_and_award_id", unique: true, using: :btree
 
   create_table "games_communities", id: false, force: :cascade do |t|
     t.integer "game_id",      limit: 4, null: false
@@ -347,6 +329,6 @@ ActiveRecord::Schema.define(version: 20160811141955) do
   add_index "videos", ["game_id"], name: "index_videos_on_game_id", using: :btree
 
   add_foreign_key "game_images", "games"
-  add_foreign_key "games_creators", "creators"
+  add_foreign_key "games_creators", "creators", name: "fk_rails_sean_custom"
   add_foreign_key "games_creators", "games"
 end

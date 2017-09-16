@@ -64,6 +64,8 @@ FeatureEnvy:
     - DeviseCreateAdminUsers#change
     - DropSubGenres#change
     - NewGameAttributes#change
+    - RemoveAwards#down
+    - RemoveAwards#up
 
 InstanceVariableAssumption:
   enabled: false
@@ -140,7 +142,8 @@ UncommunicativeVariableName:
   - CreateThemes#change
   - CreateVideos#change
   - CreateWhereToGetsForGames#change
-  - DropSubGenres#change
   - DeviseCreateAdminUsers#change
+  - DropSubGenres#change
   - NewGameAttributes#change
+  - RemoveAwards#down
   - Tovgdb::Application
