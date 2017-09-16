@@ -4,3 +4,6 @@ linters:
     enabled: true
     exclude:
       - 'app/views/games/show.html.haml'
+  InlineStyles:
+    enabled: true
+    exclude: app/views/layouts/_footer.html.haml

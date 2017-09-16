@@ -23,9 +23,10 @@
   .col-md-12.standard-list
     - if @search.results.present?
       - @search.results.each do |result|
-        - game = result[:game]
-        - elastic_search = result[:elastic_search]
-        - criteria = result[:criteria]
+        :ruby
+          game           = result[:game]
+          elastic_search = result[:elastic_search]
+          criteria       = result[:criteria]
         .row.standard-list-item
           .col-md-3= image_tag game.game_images.first.image.url(:small) if game.game_images?
           .col-md-9.search-results
