@@ -2,6 +2,11 @@
   .container {
     width: inherit;
   }
+
+  .explore-cloud-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -41,7 +46,35 @@
 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+
+  .explore-cloud-container {
+    .explore-cloud {
+      a {
+        width: 31%;
+
+        &:nth-of-type(1n) {
+          margin-right: 1.25%;
+        }
+
+        &:nth-of-type(1n+1) {
+          margin-left: 1.25%;
+        }
+
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+
+        &:nth-of-type(3n+1) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 479px) {
 
   .main-nav {
 
@@ -67,6 +100,23 @@
 
     }
 
+  }
+
+  .explore-cloud-container {
+    .explore-cloud {
+      a {
+        width: 47%;
+
+        &:nth-of-type(1n) {
+          margin-right: 1.25%;
+        }
+
+        &:nth-of-type(1n+1) {
+          margin-left: 1.25%;
+        }
+
+      }
+    }
   }
 
 }
