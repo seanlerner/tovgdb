@@ -1,16 +1,9 @@
-.row.standard-heading
-  .col-md-9
-    %h1= @creator.name
-    %h2= @creator.roles.join(' & ')
-    %p= @creator.description
-  .col-md-3
-    .pull-right= image_tag @creator.logo.url(:thumb) if @creator.logo?
-
 .standard-list
-  - @creator.published_games.each do |game|
+  - @games.each do |game|
     .row.standard-list-item
       .game-img.col-sm-3.col-xs-5.col-xxs-12
         = image_tag game.game_images.first.image.url(:medium) if game.game_images?
       .game-details.col-sm-9.col-xs-7.col-xxs-12
         %h2= link_to_by_name game
+        %h3= link_to_by_names game.published_developers
         %p= game.shortened_description

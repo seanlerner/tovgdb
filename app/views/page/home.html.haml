@@ -2,13 +2,6 @@
   .col-sm-12.col-xs-12
     %h1 Recently Added Games
 
-.standard-list
-  - @recent_games.each do |game|
-    .row.standard-list-item
-      .game-img.col-sm-3.col-xs-5.col-xxs-12= image_tag game.game_images.first.image.url(:medium) if game.game_images?
-      .game-details.col-sm-9.col-xs-7.col-xxs-12
-        %h2= link_to_by_name game
-        %h3= link_to_by_names game.published_developers
-        %p= game.shortened_description
+= render 'shared/standard_game_list'
 
 = render 'shared/explore_tags'

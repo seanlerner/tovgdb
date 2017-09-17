@@ -1,13 +1,13 @@
 .row.game-heading
-  .col-md-3
-  .col-md-6
+  .col-sm-3
+  .col-sm-6
     %h2= join_creators_with_ampersand(creators_to_join: @game.published_developers).html_safe
     %h1= @game.name
     %p= @game.long_description
-  .col-md-3
+  .col-sm-3
 
 .row
-  .col-md-3.game-info-container
+  .col-sm-3.game-info-container
     .game-info
       %h2 Game Info
 
@@ -61,12 +61,12 @@
         %h3 Links
         %p= @game.links.map { |link| link_to link.name, properly_linked_address(link.uri) }.join(', ').html_safe
 
-  .col-md-6.game-media
+  .col-sm-6.game-media
     .game-images
       %h2 Images
       - @game.game_images.each do |game_image|
         .image-container
-          = image_tag game_image.image.url(:medium), style: "height: calc(250px / #{@game.most_common_image_aspect_ratio})"
+          = image_tag game_image.image.url(:medium)
           - if game_image.caption?
             .caption= game_image.caption
 
@@ -75,7 +75,7 @@
         %h2= video.title
         = video_embed_code video
 
-  .col-md-3.game-tags
+  .col-sm-3.game-tags
     %h2 Listed Under
     - Game::LISTED_UNDER_TAGS.each do |tag_category|
       - tags = @game.send(tag_category.symbol_pluralized)

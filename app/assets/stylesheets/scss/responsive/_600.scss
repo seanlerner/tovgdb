@@ -1,0 +1,27 @@
+@media (max-width: 600px) {
+
+  .explore-cloud-container {
+    .explore-cloud {
+      a {
+        width: 31%;
+
+        &:nth-of-type(1n) {
+          margin-right: 1.25%;
+        }
+
+        &:nth-of-type(1n+1) {
+          margin-left: 1.25%;
+        }
+
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+
+        &:nth-of-type(3n+1) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+}

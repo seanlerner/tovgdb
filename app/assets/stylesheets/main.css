@@ -319,7 +319,7 @@ a.theme:hover {
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
-  width: 260px; }
+  width: 100%; }
   .image-container:nth-child(even) {
     float: left; }
   .image-container:nth-child(odd) {
@@ -509,7 +509,10 @@ a.theme:hover {
   .footer .footer-bottom,
   .footer .footer-main {
     padding-left: 25px;
-    padding-right: 25px; } }
+    padding-right: 25px; }
+
+  .game-info-container {
+    margin-bottom: 2em; } }
 @media (max-width: 600px) {
   .explore-cloud-container .explore-cloud a {
     width: 31%; }

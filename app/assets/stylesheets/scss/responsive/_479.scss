@@ -1,0 +1,46 @@
+@media (max-width: 479px) {
+
+  .main-nav {
+
+    .main-nav-inner-container {
+
+      ul {
+        display: block;
+        margin: 0 0 30px;
+
+        a {
+          margin: 0;
+        }
+      }
+
+      li {
+        width: calc(100% / 3);
+        margin: 15px 0;
+      }
+
+      .search-database {
+        clear: both;
+      }
+
+    }
+
+  }
+
+  .explore-cloud-container {
+    .explore-cloud {
+      a {
+        width: 47%;
+
+        &:nth-of-type(1n) {
+          margin-right: 1.25%;
+        }
+
+        &:nth-of-type(1n+1) {
+          margin-left: 1.25%;
+        }
+
+      }
+    }
+  }
+
+}
