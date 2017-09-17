@@ -479,6 +479,18 @@ a.theme:hover {
 .search-results .no-bold {
   font-weight: normal; }
 
+@media (max-width: 479px) {
+  .tag-list-small-screen {
+    display: flex; }
+
+  .tag-list-medium-large-screen {
+    display: none; } }
+@media (min-width: 480px) {
+  .tag-list-small-screen {
+    display: none; }
+
+  .tag-list-medium-large-screen {
+    display: flex; } }
 @media (max-width: 992px) {
   .container {
     width: inherit; }
