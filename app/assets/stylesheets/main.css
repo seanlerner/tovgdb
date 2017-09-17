@@ -481,7 +481,10 @@ a.theme:hover {
 
   .explore-cloud-container {
     padding-left: 30px;
-    padding-right: 30px; } }
+    padding-right: 30px; }
+
+  .footer-nav {
+    margin-bottom: 1em; } }
 @media (max-width: 850px) {
   .main-nav .container {
     height: initial;
@@ -502,6 +505,11 @@ a.theme:hover {
           padding-top: 4px; }
         .main-nav .container .main-nav-inner-container .search-database button.btn.btn-primary {
           margin: 15px; } }
+@media (max-width: 766px) {
+  .footer .footer-bottom,
+  .footer .footer-main {
+    padding-left: 25px;
+    padding-right: 25px; } }
 @media (max-width: 600px) {
   .explore-cloud-container .explore-cloud a {
     width: 31%; }
