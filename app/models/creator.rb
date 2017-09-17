@@ -12,7 +12,7 @@ class Creator < ApplicationRecord
   has_many :published_games, -> { published }, source: :game, through: :games_creators
   has_many :links, as: :object_has_link
   has_many :link_types, through: :links
-  has_attached_file :logo, styles: { thumb: '200>x999', medium: '300x300>' }
+  has_attached_file :logo, styles: { thumb: '200>x999', medium: '300x300>', large: '800x9999>' }
 
   accepts_nested_attributes_for :links, allow_destroy: true
 
