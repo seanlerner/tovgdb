@@ -1,0 +1,57 @@
+// Footer
+
+.footer {
+  margin-top: 50px;
+  overflow: hidden;
+
+  .footer-main {
+    background: $dark-blue;
+    color: $white;
+    padding: 25px 100px;
+  }
+
+  .footer-nav li {
+    margin-bottom: 15px;
+  }
+
+  .footer-nav li:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .footer-nav a {
+    border-bottom: 3px solid transparent;
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 0 2px;
+  }
+
+  .footer-nav a:hover {
+    background: none;
+    border-bottom: 3px solid $white;
+    text-decoration: none;
+  }
+
+  .footer-social-links a:first-of-type {
+    margin-right: 10px;
+  }
+
+  .footer-social-links a:hover {
+    border-bottom: 3px solid transparent;
+    color: $gold;
+  }
+
+  .mailing-list-signup h2 {
+    color: $white;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 0;
+  }
+
+  .footer-bottom {
+    background: $black;
+    color: darken($white, 30%);
+    font-weight: bold;
+    padding: 25px 100px;
+  }
+}

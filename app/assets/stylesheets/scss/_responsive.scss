@@ -1,0 +1,72 @@
+@media (max-width: 992px) {
+  .container {
+    width: inherit;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .main-nav .container {
+    height: initial;
+    padding-left: 0;
+
+    .main-nav-inner-container {
+      display: block;
+
+      ul {
+        float: none;
+        height: 60px;
+        padding-left: 15px;
+      }
+
+      .search-database {
+        display: flex;
+        padding-left: 30px;
+
+        label {
+          align-self: center;
+        }
+
+        input#q {
+          align-self: center;
+          padding-top: 4px;
+        }
+
+        button.btn.btn-primary {
+          margin: 15px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .main-nav {
+
+    .main-nav-inner-container {
+
+      ul {
+        display: block;
+        margin: 0 0 30px;
+
+        a {
+          margin: 0;
+        }
+      }
+
+      li {
+        width: calc(100% / 3);
+        margin: 15px 0;
+      }
+
+      .search-database {
+        clear: both;
+      }
+
+    }
+
+  }
+
+}

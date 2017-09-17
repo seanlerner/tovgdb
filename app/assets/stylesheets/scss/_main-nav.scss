@@ -1,0 +1,46 @@
+// Main Nav
+.main-nav {
+  background: transparent;
+  border-color: transparent;
+
+  .container {
+    background: $gold;
+    height: 60px;
+    padding-right: 0;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    float: left;
+    margin: 0;
+
+    li {
+      align-self: center;
+      float: left;
+
+      a {
+        border-bottom: 7px solid transparent;
+        color: $dark-blue;
+        font-weight: bold;
+        margin: 0 15px 10px;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        text-decoration: none;
+
+        &:hover,
+        &.current {
+          border-bottom: 7px solid $dark-blue;
+        }
+      }
+
+    }
+  }
+
+  .main-nav-inner-container {
+    display: flex;
+    height: 100%;
+  }
+}

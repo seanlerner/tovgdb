@@ -1,13 +1,9 @@
 .container.title
   %h1 Toronto Videogame Database
-.main-nav.navbar.navbar-default.navbar-static-top
+.main-nav
   .container
-    %button.navbar-toggle{ type: 'button', 'data-toggle': 'collapse', 'data-target': '.navbar-responsive-collapse' }
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    .navbar-collapse.collapse.navbar-responsive-collapse
-      %ul.nav.navbar-nav
+    .main-nav-inner-container
+      %ul
         = nav_link 'Home', root_path
         = nav_link 'Games', games_path
         = nav_link 'Creators', creators_path
