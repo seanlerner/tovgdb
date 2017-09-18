@@ -28,8 +28,9 @@
           elastic_search = result[:elastic_search]
           criteria       = result[:criteria]
         .row.standard-list-item
-          .col-md-3= image_tag game.game_images.first.image.url(:small) if game.game_images?
-          .col-md-9.search-results
+          .game-img.col-sm-3.col-xs-5.col-xxs-12
+            = image_tag game.game_images.first.image.url(:small) if game.game_images?
+          .search-results.game-details.col-sm-9.col-xs-7.col-xxs-12
             %h2= link_to_by_name game
             %h3= link_to_by_names game.published_developers
             %p

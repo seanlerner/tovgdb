@@ -43,4 +43,21 @@
     }
   }
 
+  .search-form {
+
+    #first-search-button {
+      display: none;
+    }
+
+    #keywords {
+      display: block;
+      width: 100%;
+    }
+
+    .search-button {
+      width: 50%;
+    }
+
+  }
+
 }

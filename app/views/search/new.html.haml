@@ -9,7 +9,7 @@
         .row
           .col-md-12
             = text_field_tag 'keywords', nil, class: 'keywords', placeholder: 'Enter Keywords'
-            = submit_tag 'Search', class: 'search-button'
+            = submit_tag 'Search', class: 'search-button', id: 'first-search-button'
 
         .row.search-type
           .col-md-12
@@ -47,4 +47,4 @@
 
         .row
           .col-md-12
-            = submit_tag 'Search', class: 'search-button pull-right'
+            = submit_tag 'Search', class: 'search-button pull-right', id: 'second-search-button'

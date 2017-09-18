@@ -447,6 +447,8 @@ a.theme:hover {
   width: 15%; }
   .search-form .search-button:hover {
     background: #82d0da; }
+.search-form #second-search-button {
+  margin-top: 1em; }
 .search-form .search-type {
   margin: 30px 0 10px; }
   .search-form .search-type label {
@@ -557,6 +559,14 @@ a.theme:hover {
     .explore-cloud-container .explore-cloud a:nth-of-type(1n) {
       margin-right: 1.25%; }
     .explore-cloud-container .explore-cloud a:nth-of-type(1n+1) {
-      margin-left: 1.25%; } }
+      margin-left: 1.25%; }
+
+  .search-form #first-search-button {
+    display: none; }
+  .search-form #keywords {
+    display: block;
+    width: 100%; }
+  .search-form .search-button {
+    width: 50%; } }
 
 /*# sourceMappingURL=main.css.map */
