@@ -24,11 +24,9 @@ class TovgdbSearch
     return if keywords.blank?
     @criteria << criteria = { category: :keywords, criteria: keywords }
 
-    games_from_elastic_search =
-      Game.search_for(keywords, @params[:match_type])
-          .sort_by { |elastic_search_result| elastic_search_result.id.to_i }
+    games_from_elastic_search = Game.search_for(keywords, @params[:match_type])
     return unless games_from_elastic_search
-    game_ids = games_from_elastic_search.map { |game| game.id.to_i }
+    game_ids = games_from_elastic_search.map(&:id)
     games_from_database = Game.where(id: game_ids, published: true)
     add_games_to_results(keyword_results_merged(games_from_database, games_from_elastic_search, criteria))
   end
