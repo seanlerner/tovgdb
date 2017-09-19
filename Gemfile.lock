@@ -43,16 +43,6 @@ GIT
       guard-compat (~> 1.1)
       reek
 
-GIT
-  remote: https://github.com/inopinatus/sass-rails-source-maps
-  revision: eba1658f253ad3aa1a23e86df106998d7f981215
-  specs:
-    sass-rails-source-maps (0.1.0)
-      rails
-      sass (~> 3.3)
-      sass-rails (~> 5.0.0.beta1)
-      sprockets (>= 2.3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -651,7 +641,6 @@ DEPENDENCIES
   rubocop
   rubocop-rspec (= 1.5.0)
   sass-rails
-  sass-rails-source-maps!
   scss_lint
   selenium-webdriver
   simplecov!

@@ -74,7 +74,6 @@ group :development do
 
   # css / sass
   gem 'sass-rails'
-  gem 'sass-rails-source-maps', git: 'https://github.com/inopinatus/sass-rails-source-maps'
 
   # guard
   gem 'guard'
