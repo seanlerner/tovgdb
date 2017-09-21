@@ -128,10 +128,6 @@ class Game < ApplicationRecord
     pricing_models
   end
 
-  def most_common_image_aspect_ratio
-    game_images(&:itself).map(&:image).map(&:aspect_ratio).group_by(&:itself).values.max_by(&:size).first
-  end
-
   # Class Methods
   class << self
     def games_tags_count_column(tag)

@@ -1,13 +1,17 @@
 exclude: ['public/**', 'vendor/**']
 
 linters:
-  NestingDepth:
-    max_depth: 5
-
-  SelectorDepth:
-    max_depth: 5
 
   ColorVariable:
     enabled: true
     exclude:
       - 'app/assets/stylesheets/scss/_colors.scss'
+
+  IdSelector:
+    enabled: false
+
+  NestingDepth:
+    max_depth: 5
+
+  SelectorDepth:
+    max_depth: 5

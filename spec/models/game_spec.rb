@@ -98,15 +98,6 @@ describe Game do
     expect(game.pricing_models_for_display).to eq ['Free', 'Freemium', 'Free Trial', 'Donation', 'Ads', 'Pay', 'Not Available']
   end
 
-  it 'knows most common aspect ratio for images' do
-    game = create(:game)
-    common_image = create(:game_image, :size_1920x1080, game: game)
-    create(:game_image, :size_1920x1080, game: game)
-    uncommon_image = create(:game_image, :size_1920x1440, game: game)
-    expect(game.most_common_image_aspect_ratio).to eq common_image.image.aspect_ratio
-    expect(game.most_common_image_aspect_ratio).not_to eq uncommon_image.image.aspect_ratio
-  end
-
   it 'can be created with a platform association' do
     game = build(:game)
     platform = create(:platform)
