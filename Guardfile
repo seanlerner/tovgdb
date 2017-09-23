@@ -142,7 +142,7 @@ guard :rspec, cmd: 'bundle exec rspec' do
 end
 
 # brakeman
-guard 'brakeman', run_on_start: true, min_confidence: 2 do
+guard 'brakeman', run_on_start: true, min_confidence: 2, quiet: true do
   watch(%r{^app/.+\.(erb|haml|rhtml|rb)$})
   watch(%r{^config/.+\.rb$})
   watch(%r{^lib/.+\.rb$})
