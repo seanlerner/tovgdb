@@ -1,10 +1,8 @@
 module GamesHelper
   def join_creators_with_ampersand(creators_to_join:)
-    creators = []
-    creators_to_join.each do |creator|
-      creators << (link_to creator.name, creator_path(creator))
-    end
-    creators.join(' &amp; ')
+    creators_to_join
+      .map { |creator| link_to creator.name, creator_path(creator) }
+      .join(' &amp; ').html_safe
   end
 
   def jan_1?(date)
