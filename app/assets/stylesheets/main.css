@@ -365,27 +365,32 @@ a.theme:hover {
 .game-tags a:hover {
   text-decoration: none; }
 
-#public #new-game label {
+#public #new-game form h4 {
+  margin: 1.5em 0 1em; }
+#public #new-game form label {
   display: block; }
-#public #new-game fieldset {
+#public #new-game form .check-box label {
+  display: inline;
+  margin-left: .5em; }
+#public #new-game form fieldset {
   margin-bottom: 1em; }
-#public #new-game [type=text],
-#public #new-game textarea {
+#public #new-game form [type=text],
+#public #new-game form textarea {
   width: 30em; }
-#public #new-game textarea {
+#public #new-game form textarea {
   border: 1px solid #d3d3d3;
   height: 6em; }
-#public #new-game [type=submit] {
+#public #new-game form [type=submit] {
   background: #007fa5;
-  margin-bottom: 1em; }
-#public #new-game .errors {
+  margin: 1em 0; }
+#public #new-game form .errors {
   background: #fae6e4;
   color: #a94442;
   display: inline-block;
   font-weight: bold;
   margin-bottom: 1em;
   padding: 1em 1.5em; }
-#public #new-game .field_with_errors input {
+#public #new-game form .field_with_errors input {
   border: 1px solid #a94442; }
 
 .tag-heading {

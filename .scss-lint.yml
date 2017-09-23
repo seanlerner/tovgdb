@@ -20,3 +20,4 @@ linters:
     enabled: true
     exclude:
       - 'app/assets/stylesheets/scss/_new_game.scss'
+      - 'app/assets/stylesheets/scss/_form.scss'

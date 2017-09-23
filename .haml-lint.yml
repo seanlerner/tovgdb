@@ -1,9 +1,14 @@
 linters:
+  InlineStyles:
+    enabled: true
+    exclude: app/views/layouts/_footer.html.haml
   LineLength:
     max: 170
     enabled: true
     exclude:
       - 'app/views/games/show.html.haml'
-  InlineStyles:
+      - 'app/views/games/new.html.haml'
+  ViewLength:
     enabled: true
-    exclude: app/views/layouts/_footer.html.haml
+    exclude:
+      - 'app/views/games/new.html.haml'

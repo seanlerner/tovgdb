@@ -26,6 +26,10 @@ module GameTagHelper
     lowercase_pluralized.to_sym
   end
 
+  def symbol_ids
+    "#{lowercase}_ids".to_sym
+  end
+
   # Instance Methods
   included do
     def published_games

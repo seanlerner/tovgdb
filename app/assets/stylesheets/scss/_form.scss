@@ -1,7 +1,17 @@
-#public #new-game {
+// Form
+#public #new-game form {
+
+  h4 {
+    margin: 1.5em 0 1em;
+  }
 
   label {
     display: block;
+  }
+
+  .check-box label {
+    display: inline;
+    margin-left: .5em;
   }
 
   fieldset {
@@ -20,7 +30,7 @@
 
   [type=submit] {
     background: $blue;
-    margin-bottom: 1em;
+    margin: 1em 0;
   }
 
   .errors {
@@ -37,6 +47,3 @@
   }
 
 }
-
-
-

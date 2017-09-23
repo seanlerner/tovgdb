@@ -19,7 +19,102 @@
       = f.error_span :long_description
 
     %fieldset
+      = f.label :engine
+      = f.select :engine, options_from_collection_for_select(Engine.all, :id, :name), include_blank: true
+
+    %fieldset
+      = f.label :series
+      = f.select :series, options_from_collection_for_select(Series.all, :id, :name), include_blank: true
+
+    %h4 Number of Players
+
+    %fieldset
+      = f.label :minimum_number_of_players, 'Minimum'
+      = f.number_field :minimum_number_of_players
+      = f.error_span :minimum_number_of_players
+
+    %fieldset
+      = f.label :maximum_number_of_players, 'Maximum'
+      = f.number_field :maximum_number_of_players
+      = f.error_span :maximum_number_of_players
+
+    %h4 Play Modes
+
+    %fieldset.check-box
+      = f.check_box :local_play
+      = f.label :local_play
+
+    %fieldset.check-box
+      = f.check_box :online_play
+      = f.label :online_play
+
+    %fieldset.check-box
+      = f.check_box :coop_play
+      = f.label :coop_play
+
+    %fieldset.check-box
+      = f.check_box :competitive_play
+      = f.label :competitive_play
+
+    %h4 Pricing Models
+
+    %fieldset.check-box
+      = f.check_box :free
+      = f.label :free
+
+    %fieldset.check-box
+      = f.check_box :freemium
+      = f.label :freemium
+
+    %fieldset.check-box
+      = f.check_box :free_trial
+      = f.label :free_trial
+
+    %fieldset.check-box
+      = f.check_box :donation
+      = f.label :donation
+
+    %fieldset.check-box
+      = f.check_box :ads
+      = f.label :ads
+
+    %fieldset.check-box
+      = f.check_box :pay
+      = f.label :pay
+
+    %fieldset.check-box
+      = f.check_box :not_available
+      = f.label :not_available, 'Game not yet on market'
+
+    - [Platform, Genre, Style, Theme, Community].each do |game_tag|
+      %h4= game_tag.pluralized
+      = f.collection_check_boxes(game_tag.symbol_ids, game_tag.all, :id, :name) do |tag|
+        %fieldset.check-box
+          = tag.check_box
+          = tag.label
+
+    %h4 Publisher Info
+
+    %fieldset
       = f.label :developer
-      = f.select :developers, options_from_collection_for_select(Creator.published, :id, :name, include_blank: true)
+      = f.select :developers, options_from_collection_for_select(Creator.published, :id, :name), include_blank: true
+
+    %fieldset
+      = f.label :publisher
+      = f.select :publishers, options_from_collection_for_select(Creator.published, :id, :name), include_blank: true
+
+    %fieldset
+      = f.label :initial_release_on, 'Initial Release Date'
+      = f.date_field :initial_release_on
+
+    %h4 Submission Details
+
+    %fieldset
+      = f.label :submission_notes, "Any further notes to add?<br>Feel free to include game tags, web links, links to images and videos, creator info and any other details that weren't captured by the form:".html_safe
+      = f.text_area :submission_notes
+
+    %fieldset
+      = f.label :submitted_by_contact_info, 'May we follow-up with you if we need more info?<br>If so, please leave an email or phone number:'.html_safe
+      = f.text_field :submitted_by_contact_info
 
     = f.submit 'Submit Game', class: 'btn btn-primary'
