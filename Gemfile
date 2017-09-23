@@ -71,6 +71,8 @@ group :development do
   gem 'rails_best_practices'
   gem 'reek'
   gem 'bullet'
+  gem 'brakeman', require: false
+
 
   # css / sass
   gem 'sass-rails'

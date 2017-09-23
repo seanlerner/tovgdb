@@ -52,4 +52,8 @@ module ApplicationHelper
       link_to link_text, link_path, class: class_name
     end
   end
+
+  def comma_list(tags)
+    sanitize(tags.map { |tag| link_to_by_name tag }.join(', ').html_safe)
+  end
 end

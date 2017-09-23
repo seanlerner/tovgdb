@@ -1,7 +1,7 @@
 .row.game-heading
   .col-sm-3
   .col-sm-6
-    %h2= join_creators_with_ampersand(creators_to_join: @game.published_developers).html_safe
+    %h2= join_creators_with_ampersand(creators_to_join: @game.published_developers)
     %h1= @game.name
     %p= @game.long_description
   .col-sm-3
@@ -23,7 +23,7 @@
 
       - if @game.platforms?
         %h3= 'Platform'.pluralize @game.platforms.count
-        %p= @game.platforms.map { |platform| link_to_by_name platform }.join(', ').html_safe
+        %p= comma_list @game.platforms
 
       - if @game.modes?
         %h3 Modes
@@ -32,14 +32,14 @@
             = link_to 'Single Player', Mode.find(:single_player)
           - elsif @game.number_of_players_defined?
             = "#{link_to '1', id: :single_player, action: :show, controller: :modes}-#{link_to @game.maximum_number_of_players, id: :multiplayer, action: :show, controller: :modes}, ".html_safe
-            = @game.multiplayer_modes.map { |mode| link_to_by_name mode }.join(', ').html_safe
+            = comma_list @game.multiplayer_modes
           - else
-            = @game.modes.map { |mode| link_to_by_name mode }.join(', ').html_safe
+            = comma_list @game.modes
 
       - if @game.games_distribution_channels?
         %h3 Distribution
-        %p= @game.games_distribution_channels.map { |distribution_channel| link_to_if distribution_channel.uri?,
-          distribution_channel.name, properly_linked_address(distribution_channel.uri) }.join(', ').html_safe
+        %p= sanitize(@game.games_distribution_channels.map { |distribution_channel| link_to_if distribution_channel.uri?,
+          distribution_channel.name, properly_linked_address(distribution_channel.uri) }.join(', ').html_safe)
 
       - if @game.pricing_models_for_display?
         %h3 Pricing Models
@@ -55,11 +55,11 @@
 
       - if @game.genres?
         %h3= 'Genre'.pluralize(@game.genres.count)
-        %p= @game.genres.map { |genre| link_to_by_name genre }.join(', ').html_safe
+        %p= comma_list @game.genres
 
       - if @game.links?
         %h3 Links
-        %p= @game.links.map { |link| link_to link.name, properly_linked_address(link.uri) }.join(', ').html_safe
+        %p= sanitize(@game.links.map { |link| link_to link.name, properly_linked_address(link.uri) }.join(', ').html_safe)
 
   .col-sm-6.game-media
     .game-images
