@@ -54,25 +54,23 @@ group :development do
   gem 'spring'
 
   # debug tools
-  gem 'web-console', '~> 2.0'
   gem 'awesome_print'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'rails-footnotes'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  # gem 'meta_request'
+  gem 'web-console', '~> 2.0'
 
   # better code
-  gem 'rubocop'
-  gem 'rubocop-rspec', '= 1.5.0'
+  gem 'brakeman', require: false
+  gem 'bullet'
   gem 'haml_lint', require: false, git: 'https://github.com/brigade/haml-lint'
-  gem 'scss_lint', require: false
   gem 'rails_best_practices'
   gem 'reek'
-  gem 'bullet'
-  gem 'brakeman', require: false
-
+  gem 'rubocop'
+  gem 'rubocop-rspec', '= 1.5.0'
+  gem 'scss_lint', require: false
 
   # css / sass
   gem 'sass-rails'

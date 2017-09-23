@@ -365,6 +365,29 @@ a.theme:hover {
 .game-tags a:hover {
   text-decoration: none; }
 
+#public #new-game label {
+  display: block; }
+#public #new-game fieldset {
+  margin-bottom: 1em; }
+#public #new-game [type=text],
+#public #new-game textarea {
+  width: 30em; }
+#public #new-game textarea {
+  border: 1px solid #d3d3d3;
+  height: 6em; }
+#public #new-game [type=submit] {
+  background: #007fa5;
+  margin-bottom: 1em; }
+#public #new-game .errors {
+  background: #fae6e4;
+  color: #a94442;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 1em 1.5em; }
+#public #new-game .field_with_errors input {
+  border: 1px solid #a94442; }
+
 .tag-heading {
   border-bottom: 1px solid #f2f2f2;
   margin-bottom: 25px;

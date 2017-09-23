@@ -16,9 +16,9 @@ class Game < ApplicationRecord
   public
 
   # Constants
-  MANY_TAGS = [Genre, Style, Community, Theme].freeze
-  TAGS = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
-  LISTED_UNDER_TAGS = [Theme, Style, Community].freeze
+  MANY_TAGS            = [Genre, Style, Community, Theme].freeze
+  TAGS                 = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
+  LISTED_UNDER_TAGS    = [Theme, Style, Community].freeze
   PUBLICATION_STATUSES = {
     ready_for_processing: { after_save_published: false, description: 'Has not been picked up by a clerk' },
     processing:           { after_save_published: false, description: 'Clerk is currently working on the record' },
@@ -79,8 +79,6 @@ class Game < ApplicationRecord
   # Validations
   validates :name, presence: { message: 'Please enter the name of this game.' }
   validates :name, uniqueness: { message: 'There is already a game with this name.' }
-  validates :local_play, presence: { unless: :online_play, message: 'Please select Local Play, Online Play or both.' }
-  validates :online_play, presence: { unless: :local_play, message: 'Please select Local Play, Online Play or both.' }
   validates :publication_status, presence: true
   validate :competitive_or_coop_play_for_multiplayer
 

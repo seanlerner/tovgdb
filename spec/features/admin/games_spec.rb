@@ -161,13 +161,6 @@ describe Game do
     expect(page).to have_content 'As the maximum number of players is more than 1, please select Competitive Play, Co-op Play or both.'
   end
 
-  it 'does not save without local or online play being selected' do
-    visit '/admin/games/new'
-    fill_in 'Name', with: 'New Game'
-    click_button 'Create Game'
-    expect(page).to have_content 'Please select Local Play, Online Play or both.'
-  end
-
   it 'shows published field for super_admin' do
     visit '/admin/games/new'
     expect(page.body).to have_css('input#game_published')

@@ -30,5 +30,8 @@ module Tovgdb
 
     # Debugging
     config.action_controller.action_on_unpermitted_parameters = :raise
+
+    # Email
+    config.action_mailer.default_url_options = { only_path: true }
   end
 end

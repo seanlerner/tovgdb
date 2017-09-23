@@ -9,6 +9,7 @@
         = nav_link 'Creators', creators_path
         = nav_link 'Tags', tags_path
         = nav_link 'Advanced Search', search_path
+        = nav_link 'Submit New Game', new_game_path
 
       = form_tag search_results_path, method: :get, class: 'form-inline search-database' do
         %label{ for: 'keywords' }
