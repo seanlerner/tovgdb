@@ -20,9 +20,10 @@
     .tag-list
       %h2{ class: tag.class.css_class }= tag.class.pluralized
       - tag.class.non_zero_count.each do |tag_instance|
-        %b= link_to_by_name tag_instance
-        = "(#{tag_instance.published_games.count})"
-        %br
+        - if tag_instance.published_games.count > 0
+          %b= link_to_by_name tag_instance
+          = "(#{tag_instance.published_games.count})"
+          %br
 
   .col-md-9.col-sm-8.col-xs-7.tag-games.col-xxs-12
     - tag.games.published.includes(:game_images, :developers).each do |game|
@@ -30,7 +31,8 @@
         .col-md-3= image_tag(game.game_images.first.image.url(:large), class: 'responsive-img') if game.game_images?
         .col-md-9
           %h2= link_to_by_name game
-          %h3= link_to_by_names game.developers.select(&:published) # TODO: make this work with eager loading
+          -# TODO: make this work with eager loading
+          %h3= link_to_by_names game.developers.select(&:published)
           %p= game.shortened_description
 
 .row.tag-list-small-screen
