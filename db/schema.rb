@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924150316) do
+ActiveRecord::Schema.define(version: 20170924192806) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20170924150316) do
   add_index "games", ["published_on"], name: "index_games_on_published_on", using: :btree
   add_index "games", ["series_id"], name: "index_games_on_series_id", using: :btree
 
-  create_table "games_communities", id: false, force: :cascade do |t|
+  create_table "games_communities", force: :cascade do |t|
     t.integer "game_id",      limit: 4, null: false
     t.integer "community_id", limit: 4, null: false
   end
@@ -192,7 +192,7 @@ ActiveRecord::Schema.define(version: 20170924150316) do
   add_index "games_distribution_channels", ["game_id", "distribution_channel_id"], name: "index_games_dist_channels_on_game_id_and_dist_channel_id", unique: true, using: :btree
   add_index "games_distribution_channels", ["released_on"], name: "index_games_distribution_channels_on_released_on", using: :btree
 
-  create_table "games_genres", id: false, force: :cascade do |t|
+  create_table "games_genres", force: :cascade do |t|
     t.integer "game_id",  limit: 4, null: false
     t.integer "genre_id", limit: 4, null: false
   end
@@ -208,14 +208,14 @@ ActiveRecord::Schema.define(version: 20170924150316) do
   add_index "games_platforms", ["game_id", "platform_id"], name: "index_games_platforms_on_game_id_and_platform_id", unique: true, using: :btree
   add_index "games_platforms", ["released_on"], name: "index_games_platforms_on_released_on", using: :btree
 
-  create_table "games_styles", id: false, force: :cascade do |t|
+  create_table "games_styles", force: :cascade do |t|
     t.integer "game_id",  limit: 4, null: false
     t.integer "style_id", limit: 4, null: false
   end
 
   add_index "games_styles", ["game_id", "style_id"], name: "index_games_styles_on_game_id_and_style_id", unique: true, using: :btree
 
-  create_table "games_themes", id: false, force: :cascade do |t|
+  create_table "games_themes", force: :cascade do |t|
     t.integer "game_id",  limit: 4, null: false
     t.integer "theme_id", limit: 4, null: false
   end
