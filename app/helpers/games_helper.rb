@@ -21,4 +21,12 @@ module GamesHelper
       "#{month} #{day}, #{year}"
     end
   end
+
+  def issue_with_submission_message(errors)
+    if errors.size == 1
+      'There was an issue with your submission.'
+    else
+      'There were issues with your submission.'
+    end
+  end
 end

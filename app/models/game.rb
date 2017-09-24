@@ -9,24 +9,25 @@ class Game < ApplicationRecord
   protected
 
   def set_defaults
+    self.long_description   ||= ''
     self.publication_status ||= 'ready_for_processing'
-    self.published_on ||= Time.zone.now
+    self.published_on       ||= Time.zone.now
   end
 
   public
 
   # Constants
-  MANY_TAGS            = [Genre, Style, Community, Theme].freeze
+  MANY_TAGS            = [Genre, Style, Community, Theme                   ].freeze
   TAGS                 = [MANY_TAGS, Platform, Engine, Series, Mode].flatten.freeze
-  LISTED_UNDER_TAGS    = [Theme, Style, Community].freeze
+  LISTED_UNDER_TAGS    = [Theme, Style, Community                          ].freeze
   PUBLICATION_STATUSES = {
-    ready_for_processing: { after_save_published: false, description: 'Has not been picked up by a clerk' },
-    processing:           { after_save_published: false, description: 'Clerk is currently working on the record' },
+    ready_for_processing: { after_save_published: false, description: 'Has not been picked up by a clerk'                   },
+    processing:           { after_save_published: false, description: 'Clerk is currently working on the record'            },
     processed_incomplete: { after_save_published: false, description: 'Clerk has submitted an incomplete record for review' },
-    processed_complete:   { after_save_published: false, description: 'Clerk has submitted a complete record for review' },
-    published_incomplete: { after_save_published: true,  description: 'Admin has approved the incomplete record' },
-    published_complete:   { after_save_published: true,  description: 'Admin has approved the complete record' },
-    undefined:            { after_save_published: false, description: 'Publication status needs to be set' }
+    processed_complete:   { after_save_published: false, description: 'Clerk has submitted a complete record for review'    },
+    published_incomplete: { after_save_published: true,  description: 'Admin has approved the incomplete record'            },
+    published_complete:   { after_save_published: true,  description: 'Admin has approved the complete record'              },
+    undefined:            { after_save_published: false, description: 'Publication status needs to be set'                  }
   }.freeze
 
   # Helper Methods
@@ -60,27 +61,27 @@ class Game < ApplicationRecord
   belongs_to :engine, counter_cache: true
   belongs_to :series, counter_cache: true
 
-  accepts_nested_attributes_for :game_images, allow_destroy: true
-  accepts_nested_attributes_for :links, allow_destroy: true
+  accepts_nested_attributes_for :game_images,                 allow_destroy: true
+  accepts_nested_attributes_for :links,                       allow_destroy: true
   accepts_nested_attributes_for :games_distribution_channels, allow_destroy: true
-  accepts_nested_attributes_for :games_creators, allow_destroy: true
-  accepts_nested_attributes_for :videos, allow_destroy: true
-  accepts_nested_attributes_for :games_platforms, allow_destroy: true
+  accepts_nested_attributes_for :games_creators,              allow_destroy: true
+  accepts_nested_attributes_for :videos,                      allow_destroy: true
+  accepts_nested_attributes_for :games_platforms,             allow_destroy: true
 
   # Scopes
-  scope :published, -> { where(published: true) }
-  scope :single_player, -> { where('minimum_number_of_players = 1') }
-  scope :multiplayer, -> { where('maximum_number_of_players >= 2 OR competitive_play = 1 OR coop_play = 1') }
-  scope :local_play, -> { where(local_play: true) }
-  scope :online_play, -> { where(online_play: true) }
-  scope :competitive_play, -> { where(competitive_play: true) }
-  scope :coop_play, -> { where(coop_play: true) }
+  scope :published,        -> { where(published: true)                                                           }
+  scope :single_player,    -> { where('minimum_number_of_players = 1')                                           }
+  scope :multiplayer,      -> { where('maximum_number_of_players >= 2 OR competitive_play = 1 OR coop_play = 1') }
+  scope :local_play,       -> { where(local_play: true)                                                          }
+  scope :online_play,      -> { where(online_play: true)                                                         }
+  scope :competitive_play, -> { where(competitive_play: true)                                                    }
+  scope :coop_play,        -> { where(coop_play: true)                                                           }
 
   # Validations
-  validates :name, presence: { message: 'Please enter the name of this game.' }
+  validates :name, presence:   { message: 'Please enter the name of this game.'     }
   validates :name, uniqueness: { message: 'There is already a game with this name.' }
   validates :publication_status, presence: true
-  validate :competitive_or_coop_play_for_multiplayer
+  validate  :competitive_or_coop_play_for_multiplayer
 
   def competitive_or_coop_play_for_multiplayer
     return unless maximum_number_of_players? && (maximum_number_of_players > 1) && (competitive_play == false) && (coop_play == false)

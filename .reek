@@ -99,8 +99,10 @@ UtilityFunction:
     - 'ApplicationHelper#video_embed_code'
     - 'GameModelHelpers::Description#remove_last_word'
     - 'GamesHelper#jan_1?'
+    - 'GamesHelper#issue_with_submission_message'
     - 'SharedMethods#remove_last_word'
     - 'TovgdbSearch'
+
 
 UncommunicativeVariableName:
   exclude:

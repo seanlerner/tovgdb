@@ -4,7 +4,12 @@
 
   - if @game.errors.any?
     .errors
-      There was an issue with your submission. Please address below and submit again.
+      = issue_with_submission_message(@game.errors)
+      %br
+      Please address the following and submit again:
+      %ul
+        - @game.errors.messages.each do |_attribute, message|
+          %li= message.first
 
   = form_for @game do |f|
 
@@ -19,12 +24,12 @@
       = f.error_span :long_description
 
     %fieldset
-      = f.label :engine
-      = f.select :engine, options_from_collection_for_select(Engine.all, :id, :name), include_blank: true
+      = f.label :engine_id
+      = f.select :engine_id, options_from_collection_for_select(Engine.all, :id, :name), include_blank: true
 
     %fieldset
-      = f.label :series
-      = f.select :series, options_from_collection_for_select(Series.all, :id, :name), include_blank: true
+      = f.label :series_id
+      = f.select :series_id, options_from_collection_for_select(Series.all, :id, :name), include_blank: true
 
     %h4 Number of Players
 
@@ -93,15 +98,19 @@
           = tag.check_box
           = tag.label
 
-    %h4 Publisher Info
+    %h4 Creator Info
 
     %fieldset
-      = f.label :developer
-      = f.select :developers, options_from_collection_for_select(Creator.published, :id, :name), include_blank: true
+      = f.label :developer_ids, 'Developers'
+      = f.select :developer_ids, options_from_collection_for_select(Creator.published, :id, :name, selected: @game.developer_ids), {}, multiple: true
+      %br
+      %i Hold CMD/CTRL to select more than one.
 
     %fieldset
-      = f.label :publisher
-      = f.select :publishers, options_from_collection_for_select(Creator.published, :id, :name), include_blank: true
+      = f.label :publisher_ids, 'Publishers'
+      = f.select :publisher_ids, options_from_collection_for_select(Creator.published, :id, :name, selected: @game.publisher_ids), {}, multiple: true
+      %br
+      %i Hold CMD/CTRL to select more than one.
 
     %fieldset
       = f.label :initial_release_on, 'Initial Release Date'

@@ -21,6 +21,16 @@ Documentation:
 Layout/EmptyLinesAroundClassBody:
   Enabled: true
 
+Layout/ExtraSpacing:
+  Enabled: true
+  Exclude:
+    - '/**/game.rb'
+
+Layout/SpaceInsideBrackets:
+  Enabled: true
+  Exclude:
+    - '/**/game.rb'
+
 Metrics/AbcSize:
   Enabled: true
   Max: 16
@@ -62,6 +72,7 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Enabled: true
   Exclude:
+    - '/**/games_controller.rb'
     - '/**/game_search.rb'
     - '/**/admin_game_tag.rb'
     - '/**/active_admin.rb'

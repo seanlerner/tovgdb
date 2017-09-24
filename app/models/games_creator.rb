@@ -11,7 +11,7 @@ class GamesCreator < ApplicationRecord
   scope :publishers, -> { where(publisher: true) }
 
   # Validations
-  validates :game, presence: true
+  # validates :game, presence: true # TODO: this is interfering with games being submitted by the public
   validates :creator, presence: { message: 'Please select a creator.' }
   validates :developer, presence: { unless: :publisher, message: 'Please select Developer, Publisher or both.' }
   validates :publisher, presence: { unless: :developer, message: 'Please select Developer, Publisher or both.' }

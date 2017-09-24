@@ -365,6 +365,13 @@ a.theme:hover {
 .game-tags a:hover {
   text-decoration: none; }
 
+#public #new-game .errors {
+  background: #fae6e4;
+  color: #a94442;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 1em 1.5em; }
 #public #new-game form h4 {
   margin: 1.5em 0 1em; }
 #public #new-game form label {
@@ -383,13 +390,6 @@ a.theme:hover {
 #public #new-game form [type=submit] {
   background: #007fa5;
   margin: 1em 0; }
-#public #new-game form .errors {
-  background: #fae6e4;
-  color: #a94442;
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 1em;
-  padding: 1em 1.5em; }
 #public #new-game form .field_with_errors input {
   border: 1px solid #a94442; }
 

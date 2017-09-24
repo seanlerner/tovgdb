@@ -9,7 +9,7 @@ describe Game do
 
   it 'displays creator on index if creator is published' do
     published_creator = create(:creator, published: true)
-    games_creator = create(:games_creator, creator: published_creator)
+    games_creator     = create(:games_creator, creator: published_creator)
     visit games_path
     expect(page).to have_content games_creator.game.name
     expect(page).to have_content published_creator.name
@@ -17,7 +17,7 @@ describe Game do
 
   it 'does not display creator on index if creator is unpublished' do
     unpublished_creator = create(:creator, published: false)
-    games_creator = create(:games_creator, creator: unpublished_creator)
+    games_creator       = create(:games_creator, creator: unpublished_creator)
     visit games_path
     expect(page).to have_content games_creator.game.name
     expect(page).not_to have_content unpublished_creator.name
@@ -37,7 +37,7 @@ describe Game do
 
   it 'displays creator on show if creator is published' do
     published_creator = create(:creator, published: true)
-    games_creator = create(:games_creator, creator: published_creator)
+    games_creator     = create(:games_creator, creator: published_creator)
     visit game_path(games_creator.game)
     expect(page).to have_content games_creator.game.name
     expect(page).to have_content published_creator.name
@@ -45,9 +45,23 @@ describe Game do
 
   it 'does not display creator on show if creator is unpublished' do
     unpublished_creator = create(:creator, published: false)
-    games_creator = create(:games_creator, creator: unpublished_creator)
+    games_creator       = create(:games_creator, creator: unpublished_creator)
     visit game_path(games_creator.game)
     expect(page).to have_content games_creator.game.name
     expect(page).not_to have_content unpublished_creator.name
+  end
+
+  it 'views submit new game form' do
+    visit new_game_path
+    expect(page).to have_content 'New Game'
+  end
+
+  it 'creates new game' do
+    visit new_game_path
+    fill_in 'Name', with: 'New Game'
+    click_button 'Submit Game'
+    expect(page).to have_content 'Thank-you for your submission. We will review and published it as soon as possible.'
+
+    # expect(page).to have_content 'New Game'
   end
 end

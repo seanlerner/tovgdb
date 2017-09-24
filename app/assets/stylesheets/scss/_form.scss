@@ -1,37 +1,5 @@
 // Form
-#public #new-game form {
-
-  h4 {
-    margin: 1.5em 0 1em;
-  }
-
-  label {
-    display: block;
-  }
-
-  .check-box label {
-    display: inline;
-    margin-left: .5em;
-  }
-
-  fieldset {
-    margin-bottom: 1em;
-  }
-
-  [type=text],
-  textarea {
-    width: 30em;
-  }
-
-  textarea {
-    border: 1px solid $grey-lightest;
-    height: 6em;
-  }
-
-  [type=submit] {
-    background: $blue;
-    margin: 1em 0;
-  }
+#public #new-game {
 
   .errors {
     background: $error-pink;
@@ -42,8 +10,44 @@
     padding: 1em 1.5em;
   }
 
-  .field_with_errors input {
-    border: 1px solid $error-red;
+  form {
+
+    h4 {
+      margin: 1.5em 0 1em;
+    }
+
+    label {
+      display: block;
+    }
+
+    .check-box label {
+      display: inline;
+      margin-left: .5em;
+    }
+
+    fieldset {
+      margin-bottom: 1em;
+    }
+
+    [type=text],
+    textarea {
+      width: 30em;
+    }
+
+    textarea {
+      border: 1px solid $grey-lightest;
+      height: 6em;
+    }
+
+    [type=submit] {
+      background: $blue;
+      margin: 1em 0;
+    }
+
+    .field_with_errors input {
+      border: 1px solid $error-red;
+    }
+
   }
 
 }

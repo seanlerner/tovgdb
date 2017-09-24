@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923170056) do
+ActiveRecord::Schema.define(version: 20170924150316) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -113,25 +113,25 @@ ActiveRecord::Schema.define(version: 20170923170056) do
   add_index "game_images", ["order"], name: "index_game_images_on_order", using: :btree
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",                              limit: 255,               null: false
-    t.string   "short_description",                 limit: 255,               null: false
-    t.text     "long_description",                  limit: 65535,             null: false
+    t.string   "name",                              limit: 255,                null: false
+    t.string   "short_description",                 limit: 255,   default: "", null: false
+    t.text     "long_description",                  limit: 65535,              null: false
     t.date     "published_on"
-    t.integer  "games_creators_count",              limit: 4,     default: 0, null: false
-    t.datetime "created_at",                                                  null: false
-    t.datetime "updated_at",                                                  null: false
+    t.integer  "games_creators_count",              limit: 4,     default: 0,  null: false
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
     t.integer  "engine_id",                         limit: 4
     t.integer  "series_id",                         limit: 4
     t.date     "initial_release_on"
-    t.integer  "games_platforms_count",             limit: 4,     default: 0, null: false
-    t.integer  "games_genres_count",                limit: 4,     default: 0, null: false
-    t.integer  "games_styles_count",                limit: 4,     default: 0, null: false
-    t.integer  "games_communities_count",           limit: 4,     default: 0, null: false
+    t.integer  "games_platforms_count",             limit: 4,     default: 0,  null: false
+    t.integer  "games_genres_count",                limit: 4,     default: 0,  null: false
+    t.integer  "games_styles_count",                limit: 4,     default: 0,  null: false
+    t.integer  "games_communities_count",           limit: 4,     default: 0,  null: false
     t.text     "old_raw_mediawiki_data",            limit: 65535
     t.boolean  "self_published"
     t.boolean  "digital_distribution"
     t.boolean  "retail_distribution"
-    t.integer  "games_themes_count",                limit: 4,     default: 0, null: false
+    t.integer  "games_themes_count",                limit: 4,     default: 0,  null: false
     t.integer  "minimum_number_of_players",         limit: 4
     t.integer  "maximum_number_of_players",         limit: 4
     t.boolean  "local_play"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 20170923170056) do
     t.boolean  "ads"
     t.boolean  "pay"
     t.boolean  "not_available"
-    t.integer  "games_distribution_channels_count", limit: 4,     default: 0, null: false
+    t.integer  "games_distribution_channels_count", limit: 4,     default: 0,  null: false
     t.boolean  "published"
     t.text     "sources",                           limit: 65535
     t.string   "alternate_names",                   limit: 255
