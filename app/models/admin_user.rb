@@ -1,6 +1,5 @@
 class AdminUser < ApplicationRecord
-  devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   # Constants
   ROLES = ['Super Admin', 'Clerk'].freeze
