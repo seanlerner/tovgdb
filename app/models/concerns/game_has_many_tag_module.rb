@@ -11,6 +11,6 @@ module GameHasManyTagModule
     delegate :count, to: game_join_model
 
     # Scopes
-    scope :non_zero_count, -> { where('? > 0', "#{game_join_model}_count") }
+    scope :non_zero_count, -> { where("#{game_join_model}_count > 0") }
   end
 end
