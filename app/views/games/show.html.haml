@@ -38,7 +38,7 @@
 
       - if @game.games_distribution_channels?
         %h3 Distribution
-        %p= sanitize(@game.games_distribution_channels.map { |distribution_channel| link_to_if distribution_channel.uri?,
+        %p= sanitize(@game.games_distribution_channels.includes(:distribution_channel).map { |distribution_channel| link_to_if distribution_channel.uri?,
           distribution_channel.name, properly_linked_address(distribution_channel.uri) }.join(', ').html_safe)
 
       - if @game.pricing_models_for_display?
@@ -59,7 +59,7 @@
 
       - if @game.links?
         %h3 Links
-        %p= sanitize(@game.links.map { |link| link_to link.name, properly_linked_address(link.uri) }.join(', ').html_safe)
+        %p= sanitize(@game.links.includes(:link_type).map { |link| link_to link.name, properly_linked_address(link.uri) }.join(', ').html_safe)
 
   .col-sm-6.game-media
     .game-images

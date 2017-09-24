@@ -27,7 +27,7 @@ class TovgdbSearch
     games_from_elastic_search = Game.search_for(keywords, @params[:match_type])
     return unless games_from_elastic_search
     game_ids = games_from_elastic_search.map(&:id)
-    games_from_database = Game.where(id: game_ids, published: true)
+    games_from_database = Game.includes(:game_images, :developers).where(id: game_ids, published: true)
     add_games_to_results(keyword_results_merged(games_from_database, games_from_elastic_search, criteria))
   end
 
@@ -66,7 +66,7 @@ class TovgdbSearch
     %i[single_player multiplayer local_play online_play coop_play competitive_play].each do |mode|
       next unless @params[mode]
       @criteria << criteria = { category: :modes, criteria: Mode.find(mode).name }
-      Game.published.includes(:game_images).send(mode).find_each do |game|
+      Game.published.includes(:game_images, :developers).send(mode).find_each do |game|
         game_data = { game: game, criteria: criteria }
         add_game_to_results(game_data)
       end

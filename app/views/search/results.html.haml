@@ -32,7 +32,8 @@
             = image_tag game.game_images.first.image.url(:small) if game.game_images?
           .search-results.game-details.col-sm-9.col-xs-7.col-xxs-12
             %h2= link_to_by_name game
-            %h3= link_to_by_names game.published_developers
+            -# TODO: make `game.published_developers` work instead of `game.developers(&:published)` using eager loading
+            %h3= link_to_by_names game.developers(&:published)
             %p
               - if elastic_search && elastic_search.highlight.long_description.present?
                 = elastic_search.highlight.long_description.join.html_safe

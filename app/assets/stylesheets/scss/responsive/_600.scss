@@ -3,12 +3,9 @@
   .main-nav {
 
     .main-nav-inner-container {
-
-      ul {
-        a {
-            display: inline-block;
-            margin-top: 1em;
-          }
+      ul a {
+        display: inline-block;
+        margin-top: 1em;
         }
       }
     }
@@ -36,6 +33,7 @@
         }
       }
     }
+
   }
 
 }

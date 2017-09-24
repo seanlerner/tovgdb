@@ -5,5 +5,6 @@
         = image_tag game.game_images.first.image.url(:medium) if game.game_images?
       .game-details.col-sm-9.col-xs-7.col-xxs-12
         %h2= link_to_by_name game
-        %h3= link_to_by_names game.published_developers
+        -# %h3= link_to_by_names game.published_developers # TODO: Make this work with eager loading
+        %h3= link_to_by_names game.developers.select(&:published)
         %p= game.shortened_description

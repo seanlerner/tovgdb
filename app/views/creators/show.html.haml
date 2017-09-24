@@ -7,7 +7,7 @@
     .pull-right= image_tag(@creator.logo.url(:large), class: 'responsive-img') if @creator.logo?
 
 .standard-list
-  - @creator.published_games.each do |game|
+  - @creator.published_games.includes(:game_images).each do |game|
     .row.standard-list-item
       .game-img.col-sm-3.col-xs-5.col-xxs-12
         = image_tag game.game_images.first.image.url(:medium) if game.game_images?

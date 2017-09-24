@@ -1,6 +1,6 @@
 class GamesController < InheritedResources::Base
   def index
-    @games = Game.published
+    @games = Game.includes(:game_images, :developers).published
   end
 
   def show

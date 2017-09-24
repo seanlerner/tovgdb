@@ -1,5 +1,5 @@
 class PageController < ApplicationController
   def home
-    @games = Game.published.last(3)
+    @games = Game.includes(:game_images, :developers).published.last(3)
   end
 end
