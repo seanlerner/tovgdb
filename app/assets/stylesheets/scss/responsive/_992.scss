@@ -1,4 +1,38 @@
 @media (max-width: 992px) {
+
+  .main-nav .container {
+    height: initial;
+    padding-left: 0;
+
+    .main-nav-inner-container {
+      display: block;
+
+      ul {
+        float: none;
+        height: 60px;
+        padding-left: 15px;
+      }
+
+      .search-database {
+        display: flex;
+        padding-left: 30px;
+
+        label {
+          align-self: center;
+        }
+
+        #q {
+          align-self: center;
+          padding-top: 4px;
+        }
+
+        .btn.btn-primary {
+          margin: 15px;
+        }
+      }
+    }
+  }
+
   .container {
     width: inherit;
   }

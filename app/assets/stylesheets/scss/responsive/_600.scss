@@ -1,5 +1,19 @@
 @media (max-width: 600px) {
 
+  .main-nav {
+
+    .main-nav-inner-container {
+
+      ul {
+        a {
+            display: inline-block;
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+
+
   .explore-cloud-container {
     .explore-cloud {
       a {
