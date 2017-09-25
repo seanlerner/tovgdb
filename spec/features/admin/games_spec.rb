@@ -45,8 +45,8 @@ describe Game do
       check tag.name
       click_button 'Update Game'
       expect(page).to have_content tag.name
-      visit '/admin/games'
-      expect(page.first("td.col-of_#{tag_class.name.downcase.pluralize}").text).to eq '1'
+      visit admin_detailed_games_list_path
+      expect(page).to have_content tag.name
     end
   end
 
@@ -57,8 +57,8 @@ describe Game do
       select tag.name, from: "game_#{object_association.name.downcase}_id"
       click_button 'Update Game'
       expect(page).to have_content tag.name
-      visit '/admin/games'
-      expect(page.first("td.col-#{object_association.name.downcase}").text).to eq tag.name
+      visit admin_detailed_games_list_path
+      expect(page).to have_content tag.name
     end
   end
 

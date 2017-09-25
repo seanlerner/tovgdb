@@ -15,7 +15,7 @@ describe DistributionChannel do
   end
 
   it 'is present in games index' do
-    visit '/admin/games'
+    visit admin_detailed_games_list_path
     expect(page).to have_content distribution_channel.name
   end
 

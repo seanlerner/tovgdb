@@ -20,19 +20,7 @@ describe Game do
     expect(build(:game, name: game.name)).not_to be_valid
   end
 
-  # Class Methods
-  it 'returns valid counts column' do
-    expect(described_class.games_tags_count_column(Genre)).to eq('games_genres_count')
-  end
-
   # Instance Methods
-  it 'returns count for a tag' do
-    game = create(:game)
-    genre = create(:genre)
-    create(:games_genre, game: game, genre: genre)
-    expect(game.games_tags_count(Genre)).to eq 1
-  end
-
   it 'knows when it was released if intial release date set' do
     test_date = Time.zone.local '2001-10-12'
     game = create(:game, initial_release_on: test_date)

@@ -10,40 +10,9 @@ ActiveAdmin.register Game do
     end
     column :publication_status
     column :published
+    column :published_on
+    column :initial_release_on
     actions
-    column :series, sortable: 'series.name'
-    column 'Developers' do |game|
-      game.games_creators.developers.map { |developer| developer.creator.name }.join('<br />').html_safe
-    end
-    column 'Publishers' do |game|
-      game.games_creators.publishers.map { |publisher| publisher.creator.name }.join('<br />').html_safe
-    end
-    column :engine, sortable: 'engines.name'
-    %i[published_on initial_release_on
-       minimum_number_of_players maximum_number_of_players
-       local_play online_play coop_play competitive_play
-       free freemium free_trial donation ads pay not_available].each do |game_attribute|
-      column game_attribute
-    end
-    column 'Platforms' do |game|
-      game.games_platforms.map(&:name).join('<br />').html_safe
-    end
-    column 'Distribution Channels' do |game|
-      game.games_distribution_channels.map(&:name).join('<br />').html_safe
-    end
-    Game::MANY_TAGS.each do |tag|
-      column "# of #{tag.pluralized}", sortable: Game.games_tags_count_column(tag) do |game|
-        game.games_tags_count(tag)
-      end
-    end
-    column :digital_distribution
-    column :retail_distribution
-  end
-
-  controller do
-    def scoped_collection
-      super.includes :engine, :series
-    end
   end
 
   # Show

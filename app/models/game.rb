@@ -91,10 +91,6 @@ class Game < ApplicationRecord
   end
 
   # Instance Methods
-  def games_tags_count(tag)
-    send Game.games_tags_count_column(tag)
-  end
-
   def released_on
     if initial_release_on?
       initial_release_on
@@ -125,13 +121,6 @@ class Game < ApplicationRecord
       pricing_models << pricing_model.titleize if send(pricing_model)
     end
     pricing_models
-  end
-
-  # Class Methods
-  class << self
-    def games_tags_count_column(tag)
-      "games_#{tag.lowercase.pluralize}_count"
-    end
   end
 
   # Elastic Search Settings

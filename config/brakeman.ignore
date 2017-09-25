@@ -1,0 +1,26 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "51a83a65719df9b2f58faa636c00d1062d82cdee2a33a25afecb90c1291318cf",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/models/concerns/game_has_many_tag_module.rb",
+      "line": 14,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "where(\"#{game_join_model}_count > 0\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "GameHasManyTagModule",
+        "method": null
+      },
+      "user_input": "game_join_model",
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2017-09-24 21:55:32 -0400",
+  "brakeman_version": "3.7.2"
+}
