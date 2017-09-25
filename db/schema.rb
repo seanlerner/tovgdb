@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924192806) do
+ActiveRecord::Schema.define(version: 20170925023433) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170924192806) do
 
   add_index "creators", ["founded_on"], name: "index_creators_on_founded_on", using: :btree
   add_index "creators", ["name"], name: "index_creators_on_name", unique: true, using: :btree
+  add_index "creators", ["published"], name: "index_creators_on_published", using: :btree
 
   create_table "distribution_channels", force: :cascade do |t|
     t.string   "name",                              limit: 255
@@ -159,6 +160,7 @@ ActiveRecord::Schema.define(version: 20170924192806) do
   add_index "games", ["maximum_number_of_players"], name: "index_games_on_maximum_number_of_players", using: :btree
   add_index "games", ["minimum_number_of_players"], name: "index_games_on_minimum_number_of_players", using: :btree
   add_index "games", ["name"], name: "index_games_on_name", unique: true, using: :btree
+  add_index "games", ["published"], name: "index_games_on_published", using: :btree
   add_index "games", ["published_on"], name: "index_games_on_published_on", using: :btree
   add_index "games", ["series_id"], name: "index_games_on_series_id", using: :btree
 

@@ -66,6 +66,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'bullet'
   gem 'haml_lint', require: false, git: 'https://github.com/brigade/haml-lint'
+  gem 'lol_dba'
   gem 'rails_best_practices'
   gem 'reek'
   gem 'rubocop'
