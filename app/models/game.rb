@@ -145,8 +145,8 @@ class Game < ApplicationRecord
     }
   } do
     mappings do
-      indexes :name, type: 'string', analyzer: 'partial_words', search_analyzer: 'standard'
-      indexes :long_description, type: 'string', analyzer: 'partial_words', search_analyzer: 'standard'
+      indexes :name,             type: 'text', analyzer: 'partial_words', search_analyzer: 'standard'
+      indexes :long_description, type: 'text', analyzer: 'partial_words', search_analyzer: 'standard'
     end
   end
 end
