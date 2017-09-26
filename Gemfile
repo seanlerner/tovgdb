@@ -40,6 +40,8 @@ gem 'active_record_union'
 gem 'haml', '4'
 gem 'haml-rails'
 gem 'colorize'
+gem 'sass-rails'
+
 
 group :production do
   gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
@@ -72,9 +74,6 @@ group :development do
   gem 'rubocop'
   gem 'rubocop-rspec', '= 1.5.0'
   gem 'scss_lint', require: false
-
-  # css / sass
-  gem 'sass-rails'
 
   # guard
   gem 'guard'
